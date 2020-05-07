@@ -31,3 +31,24 @@
                 <th>Edit User</th>
                 <th>Delete User</th>
             </tr>
+    
+            <?php 
+            function define_gender(string $var){
+                if($var=="F"){
+                    return "Femer";
+                }
+                else if($var=="M"){
+                    return "Mashkull";
+                }
+                else{
+                    return;
+                }
+            }
+
+            $conn=new mysqli(serverName,username,password,dbname);
+            if(!$conn){
+                die("Connection failed:". mysqli_error_message());
+            }
+
+            $query="SELECT * FROM perdoruesit";
+            $resultArray=mysqli_query($conn,$query);
