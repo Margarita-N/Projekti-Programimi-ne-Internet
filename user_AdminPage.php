@@ -52,3 +52,22 @@
 
             $query="SELECT * FROM perdoruesit";
             $resultArray=mysqli_query($conn,$query);
+            while($result=$resultArray->fetch_assoc()){
+                echo '<tr><td>'.$result['userID'].'</td>'
+                    .'<td>'.$result['username'].'</td>'
+                    .'<td>'.$result['antaresimi'].'</td>'
+                    .'<td>'.$result['email'].'</td>'
+                    .'<td>'.define_gender($result['gjinia']).'</td>'
+                    .'<td>'.$result['qyteti'].'</td>'
+                    .'<td>'.$result['shteti'].'</td>'
+                    .'<td>'.$result['ditelindja'].'</td>'
+                    .'<td><a href="editUser.php?id='.$result['userID'].'">Edit</a></td>'
+                    .'<td><a href="editUser.php?id='.$result['userID'].'">Delete</a></td>';
+            }
+            ?>
+        </table>
+
+    </div>
+    <?php mysqli_close($conn);?>
+    </body>
+</html>
