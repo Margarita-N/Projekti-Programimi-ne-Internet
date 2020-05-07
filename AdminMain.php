@@ -44,3 +44,18 @@
                     echo $result2['bookcount']; ?></p>
             <!--<p><i class="fas fa-book" style="color:white;font-size:30px;text-align: center;"></i></p>-->
         </div>
+    <div class="label-tag">
+            <h2>Categories</h2>
+            <p class="db-numbers"><?php $result3=mysqli_num_rows($categories);
+                                        echo $result3; ?></p>
+            <!--<p><i class="fas fa-receipt" style="color:white;font-size:30px;text-align: center;"></i></p>-->
+        </div>
+        <div class="label-tag">
+            <h2>Authors</h2>
+            <p class="db-numbers"><?php $result4=mysqli_num_rows($authors);
+                                        echo $result4; ?></p>
+            <!--<p><i class="fas fa-receipt" style="color:white;font-size:30px;text-align: center;"></i></p>-->
+        </div>
+    </div>
+</body>
+</html>
