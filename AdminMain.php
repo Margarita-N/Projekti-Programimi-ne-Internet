@@ -29,3 +29,18 @@
         $queryAuthors="SELECT * FROM librat GROUP BY author";
         $authors=mysqli_query($conn,$queryAuthors);
     ?>
+<div class="center-body">
+    <?php require("AdminHeader.php");?>
+
+        <div class="label-tag">
+            <h2>Users</h2>
+            <p class="db-numbers"><?php $result1 = $users->fetch_assoc();
+                    echo $result1['usercount'];?></p>
+            <!--<p><i class="fas fa-users" style="color:white;font-size:30px;text-align: center;"></i></p>-->
+        </div>
+        <div class="label-tag">
+            <h2>Books</h2>
+            <p class="db-numbers"><?php $result2 = $books->fetch_assoc();
+                    echo $result2['bookcount']; ?></p>
+            <!--<p><i class="fas fa-book" style="color:white;font-size:30px;text-align: center;"></i></p>-->
+        </div>
