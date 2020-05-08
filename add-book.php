@@ -72,8 +72,7 @@ header('location:manage-books.php');
 <?php include('AdminHeader.php');?>
 <style><?php readfile("css/AdminStyle.css");?></style>
 <!-- MENU SECTION END-->
-    <div class="content-wrapper">
-         <div class="container">
+       <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
 			<br>
