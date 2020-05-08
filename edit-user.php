@@ -17,15 +17,15 @@
         <?php require("db/dbconfig.php");
               require("AdminHeader.php");
 
+              $conn=new mysqli(serverName,username,password,dbname);
               if(isset($_GET['id'])){
                 $ID=$_GET['id'];
 
-                $conn=new mysqli(serverName,username,password,dbname);
                 $selectionQuery="SELECT * FROM perdoruesit where userID=$ID";
                 $resultArray=mysqli_query($conn,$selectionQuery);
                 $result=$resultArray->fetch_assoc();
 
-                echo '<div class="content-table"><form method="post" action="<?php $_PHP_SELF ?>" name="editUser"><table>
+                echo '<div class="content-table"><form method="post" action="editUser.php?id='.$ID.'" name="editUser"><table>
                     <tr>
                         <td><label>Username</label><td>
                         <td><input type="text" name="username" value="'.$result['username'].'"/></td>
@@ -52,7 +52,7 @@
                     </table>
                     </form></div>';
 
-                    if(isset($_POST['submitBtn'])){
+                    if(isset($_REQUEST['submitBtn'])){
                         $username=$_POST['username'];
                         $password=$_POST['password'];
                         $email=$_POST['email'];
@@ -63,9 +63,14 @@
                         $editquery=mysqli_query($conn,$query);
                     }
               }
-
+              else{
+                  ?>
+                <script>
+                    alert("Nuk eshte zgjedhur asnje perdorues!");
+                </script>
+                <?php
+              }
               
-             
               ?>
         </div>
         <?php mysqli_close($conn);?>
