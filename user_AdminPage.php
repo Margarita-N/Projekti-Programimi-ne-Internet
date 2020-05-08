@@ -31,7 +31,6 @@
                 <th>Edit User</th>
                 <th>Delete User</th>
             </tr>
-    
             <?php 
             function define_gender(string $var){
                 if($var=="F"){
@@ -61,8 +60,8 @@
                     .'<td>'.$result['qyteti'].'</td>'
                     .'<td>'.$result['shteti'].'</td>'
                     .'<td>'.$result['ditelindja'].'</td>'
-                    .'<td><a href="editUser.php?id='.$result['userID'].'">Edit</a></td>'
-                    .'<td><a href="editUser.php?id='.$result['userID'].'">Delete</a></td>';
+                    .'<td><a href="edit-user.php?id='.$result['userID'].'">Edit</a></td>'
+                    .'<td><a href="edit-user.php?id='.$result['userID'].'">Delete</a></td>';
             }
             ?>
         </table>
