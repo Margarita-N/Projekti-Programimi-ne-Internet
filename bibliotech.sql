@@ -117,3 +117,6 @@ create table kategorite(
   Statusi integer,  
 	primary key(kategoriID)
 );
+
+insert into kategorite(kategoriName,Statusi) values('Fantazi',1);
+insert into kategorite(kategoriName,Statusi) values('Biografi',1);
