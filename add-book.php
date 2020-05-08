@@ -104,7 +104,7 @@ Informata rreth Librave
 <option value="">Zgjedh kategorine </option>
 <?php 
 $status=1;
-$sql = "SELECT * from  librat ";
+$sql = "SELECT * from  kategorite where Statusi=:status";
 $query = $dbh -> prepare($sql);
 $query -> bindParam(':status',$status, PDO::PARAM_STR);
 $query->execute();
@@ -114,7 +114,7 @@ if($query->rowCount() > 0)
 {
 foreach($results as $result)
 {               ?>  
-<option value="<?php echo htmlentities($result->Kategoria);?>"><?php echo htmlentities($result->Kategoria);?></option>
+<option value="<?php echo htmlentities($result->kategoriID);?>"><?php echo htmlentities($result->kategoriName);?></option>
  <?php }} ?> 
 </select>
 </div>
