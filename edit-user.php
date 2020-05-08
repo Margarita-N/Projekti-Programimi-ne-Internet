@@ -18,6 +18,8 @@
               require("AdminHeader.php");
 
               $conn=new mysqli(serverName,username,password,dbname);
+             
+
               if(isset($_GET['id'])){
                 $ID=$_GET['id'];
 
@@ -25,7 +27,7 @@
                 $resultArray=mysqli_query($conn,$selectionQuery);
                 $result=$resultArray->fetch_assoc();
 
-                echo '<div class="content-table"><form method="post" action="editUser.php?id='.$ID.'" name="editUser"><table>
+                echo '<div class="content-table"><form method="post" action="edit-user.php?id='.$ID.'" name="editUser"><table>
                     <tr>
                         <td><label>Username</label><td>
                         <td><input type="text" name="username" value="'.$result['username'].'"/></td>
@@ -52,15 +54,20 @@
                     </table>
                     </form></div>';
 
-                    if(isset($_REQUEST['submitBtn'])){
+                    if(isset($_POST['submitBtn'])){
                         $username=$_POST['username'];
                         $password=$_POST['password'];
                         $email=$_POST['email'];
                         $qyteti=$_POST['qyteti'];
                         $shteti=$_POST['shteti'];
-      
+        
                         $query="UPDATE perdoruesit SET username='$username', passwordi='$password', email='$email', qyteti='$qyteti', shteti='$shteti' where userID=$ID";
                         $editquery=mysqli_query($conn,$query);
+                        if($editquery==true){
+                            ?>
+                            <script>alert("Te dhenat jane edituar me sukses!")</script>
+                            <?php header("Location:users_AdminPage.php");
+                        }
                     }
               }
               else{
