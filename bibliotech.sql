@@ -110,3 +110,10 @@ update librat set Kategoria='Ekonomi&Biznes' where bookID=23;
 update librat set Kategoria='Letersi Shqiptare' where bookID=24;
 update librat set Kategoria='Fantazi' where bookID=25;
 update librat set Kategoria='Fantazi' where bookID=26;
+
+create table kategorite(
+	kategoriID integer auto_increment,
+  kategoriName varchar(50),
+  Statusi integer,  
+	primary key(kategoriID)
+);
