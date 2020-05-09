@@ -25,6 +25,17 @@
     <link rel="stylesheet" href="css/price_rangs.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>.red{
+        color:red;
+    }</style>
+    <script>
+        $(document).ready(function(){
+            $("form").submit(function(event){
+                event.preventDefault();
+                var email=$("#email").val();
+                var password=$("#password").val();
+                var remember=($("#f-option").prop("checked")? 1:0);
 </head>
 
 <body class="bg-white">
