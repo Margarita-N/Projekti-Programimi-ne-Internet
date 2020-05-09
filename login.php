@@ -36,6 +36,28 @@
                 var email=$("#email").val();
                 var password=$("#password").val();
                 var remember=($("#f-option").prop("checked")? 1:0);
+                
+                if(email=="" || password==""){
+                    $.ajax({
+                        url: "validate.php",
+                        data:{email:email,password:password,remember:remember},
+                        type:'POST',
+                        success: function(result){
+                                $(".error-field").html(result);
+                        }});
+                }
+                else{
+                    $.ajax({
+                        url: "validate.php",
+                        data:{email:email,password:password,remember:remember},
+                        type:'POST',
+                        success: function(result){
+                                $(".error-field").html(result);
+                        }});
+                }
+            })
+        })
+    </script>
 </head>
 
 <body class="bg-white">
