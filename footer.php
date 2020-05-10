@@ -47,3 +47,22 @@
                                 
                             </form>
                         </div>
+                              <div class="social_icon">
+                            <a href="#"><i class="ti-facebook"></i></a>
+                            <a href="#"><i class="ti-twitter-alt"></i></a>
+                            <a href="#"><i class="ti-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="copyright_text">
+                        <P>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" style="color: lightsalmon;">Colorlib</a>
+</P>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
