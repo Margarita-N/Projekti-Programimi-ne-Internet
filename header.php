@@ -26,3 +26,24 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="game.php">ARGETOHU</a>
                                 </li>
+                              <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        KATEGORITE
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                        <a class="dropdown-item" href="kategorite.html"> 
+                                            
+                                            
+                                        </a>
+                                        <a class="dropdown-item" href="biografi.html">BIOGRAFI</a>
+                                        <a class="dropdown-item" href="shkenca.html">SHKENCA SOCIALE & PSIKOLOGJIKE</a>
+                                        <a class="dropdown-item" href="letersi.html">LETERSI SHQIPTARE</a>
+                                        <a class="dropdown-item" href="filozofi.html">FILOZOFI & SOCIOLOGJI</a>
+                                        <a class="dropdown-item" href="histori.html">HISTORI</a>
+                                        <a class="dropdown-item" href="ekonomi.html">EKONOMI & BIZNES</a>
+                                        <a class="dropdown-item" href="femije.html">LIBRA PER FEMIJE</a>
+                                        <a class="dropdown-item" href="religjioz.html">LIBRA RELIGJIOZ</a>
+                                        <a class="dropdown-item" href="fantazi.html">FANTAZI</a>
+                                    </div>
+                                </li>
