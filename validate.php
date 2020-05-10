@@ -18,4 +18,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $result = $stmt->get_result();
     $resultset=$result->fetch_all(MYSQLI_ASSOC);
+         
+        if(sizeof($resultset)>0){
+        echo 'You are logged in!';
+        if($remember==1){
+            //vendos cookie per te mbajtur mend perdoruesin
+        }
+    }
+    else{
+        echo 'Email or password are incorrect!';
+    }
+}
+}
     ?>
