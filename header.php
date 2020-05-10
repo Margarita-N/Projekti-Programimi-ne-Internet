@@ -16,3 +16,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.html">BALLINA</a>
                                 </li>
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link" href="shporta.html" 
+                                        >
+                                        SHPORTA
+                                    </a>
+                                    
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="game.php">ARGETOHU</a>
+                                </li>
