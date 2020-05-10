@@ -47,3 +47,24 @@
                                         <a class="dropdown-item" href="fantazi.html">FANTAZI</a>
                                     </div>
                                 </li>
+                             <li class="nav-item dropdown">
+                                    <a class="nav-link " href="ngjarje.html" 
+                                        role="button"  aria-haspopup="true" aria-expanded="false">
+                                        NGJARJE
+                                    </a>
+                                   
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="kontakt.html">KONTAKT</a>
+                                </li>
+                            </ul>
+                        </div>
+                            </div>
+                             
+                            <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
