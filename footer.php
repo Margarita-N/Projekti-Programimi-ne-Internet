@@ -31,4 +31,19 @@
                        <p style="color: white;">Kjo faqe ofron shume mundesi per adhuruesit e librit,ku pervec blerjes online dhe te lehte ju mund te ndani eksperiencen tuaj edhe me te tjeret.Kenaqesia juaj ne lexim ,kenaqesia jone ne pune !</p>
                     </div>
                 </div>
-        
+         <div class="col-sm-6 col-lg-4">
+                    <div class="single_footer_part">
+                        <h4 style="color: lightsalmon;">KOMENTE DHE SYGJERIME</h4>
+                        <div id="mc_embed_signup">
+                            <form target="_blank"
+                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                method="get" class="subscribe_form relative mail_part">
+                                <input type="email" name="email"  placeholder="Email Address"
+                                    class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = ' Email Address '">
+                                <button type="submit" name="submit" id="newsletter-submit" style="color: white;background-color: lightsalmon;border-color:white;"
+                                    >Dergo</button>
+                                <div class="mt-10 info"></div>
+                                
+                            </form>
+                        </div>
