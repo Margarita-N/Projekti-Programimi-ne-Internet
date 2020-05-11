@@ -53,6 +53,20 @@
             margin:5px;
         }
     </style>
+    $(document).ready(function(){
+            $("form").submit(function(event){
+                event.preventDefault();
+                var username=$("#username").val();
+                var email=$("#email").val();
+                var password=$("#password").val();
+                var confirmPassword=$("#confirmPassword").val();
+                var gender=$('input[name="gender"]:checked').val();
+                var shteti=$("#state").val();
+                // $("#ditelindja").datepicker({ 
+                //     onSelect: function() { 
+                //         var date = $(this). datepicker('getDate');
+                //         var ditelindja=date.toString();
+                //  } });
 </head>
 
 <body class="bg-white">
