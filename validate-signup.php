@@ -27,5 +27,14 @@
             elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
                 echo '<span class="red">Email is not valid!</span>';
             }
+            elseif($password!=$confirmPassword){
+                echo '<span class="red">Password dhe confirm password nuk jane te njejta!</span>';
+            }
+            elseif($passwordLength<8){
+                echo '<span class="red">Password must be at least 8 characters long!<br></span>';
+            }
+            elseif(!preg_match('@[A-Z]@',$password) || !preg_match('@[a-z]@',$password) || !preg_match('@[0-9]@',$password)){
+                echo '<span class="red">Password should contain a uppercase letter,lowercase letter and a digit!';
+            }
   }
   ?>
