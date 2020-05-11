@@ -26,7 +26,33 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
+    <style>
+        .red{
+            color:red;
+        }
+        #selector select{
+            display: inline-block;
+        }
+        #ditelindja{
+            height:42px;
+            border:1px solid lightgrey;
+            border-radius: 5px;
+            color: grey;
+        }
+        #date-label{
+            margin-left:20px;
+            color:grey;
+        }
+        #gender-selector{
+            align-items: center;
+            margin:5px;
+            margin-left:20px;
+            color:grey;
+        }
+        #gender-selector #f-option{
+            margin:5px;
+        }
+    </style>
 </head>
 
 <body class="bg-white">
