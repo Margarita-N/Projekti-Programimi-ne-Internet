@@ -53,6 +53,7 @@
             margin:5px;
         }
     </style>
+    <script>
     $(document).ready(function(){
             $("form").submit(function(event){
                 event.preventDefault();
@@ -67,6 +68,26 @@
                 //         var date = $(this). datepicker('getDate');
                 //         var ditelindja=date.toString();
                 //  } });
+                
+                $.ajax({
+                    url: "validate-signup.php",
+                    data:{
+                        username:username,
+                        email:email,
+                        password:password,
+                        confirmPassword:confirmPassword,
+                        gender:gender,
+                        state:shteti,
+                        //ditelindja:ditelindja
+                        },
+                    type:'POST',
+                    success: function(result){
+                            $(".error-field").html(result);
+                }});
+
+            })
+        })
+    </script>
 </head>
 
 <body class="bg-white">
