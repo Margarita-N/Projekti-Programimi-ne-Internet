@@ -71,6 +71,22 @@
     $answer = str_split($random_line);
     return $answer;
 }
+function hideCharacters($answer)
+{
+    $nr_hiddenchars= floor((sizeof($answer)/2) + 1);
+    $count = 0;
+    $hidden = $answer;
+    while ($count < $nr_hiddenchars )
+    {
+        $rand_element = rand(0,sizeof($answer)-2);
+        if( $hidden[$rand_element] != '_' )
+        {
+            $hidden = str_replace($hidden[$rand_element],'_',$hidden,$replace_count);
+            $count = $count + $replace_count;
+        }
+    }
+    return $hidden;
+}
 
 
 
