@@ -61,3 +61,10 @@
                             <p style="font-size: medium;text-align: center;margin-left: 20px;margin-right: 20px;"><strong>SHITESI I KEPUCEVE</strong>,një sagë e mrekullueshme e inovacionit, mbijetesës, dhe triumfit e themeluesit të kompanisë Nike.Një rrëfim epik për dështimin e triumfine,besimin dhe suksesin fituar me mund dhe dashurinë...</p>    
                         </div>
                     </div>
+                     <div class="col-lg-4 col-sm-6">
+                        <div class="single_feature_post_text">
+                            <div class="img-resize" style="text-align: center;margin-left: 50px;margin-top: 30px;"><img src="img/Michelle.jpg" alt="#"></div>
+                            <h3 style="font-family: fantasy;margin-left: 120px;">AUTORI I PREFERUAR</h3>
+                            <p style="font-size: medium;text-align: center;margin-left: 20px;margin-right: 20px;"><strong>MICHELLE OBAMA</strong>,autorja amerikane,dikur zonja e pare e SHBA eshte votuar e preferuara jone.E kete epitet e ka fituar me botimin e librit te saj BestSeller "BECOMING",nje liber mjaft i fuqishem dhe inspirues per te zbuluar zerin brenda teje</p>
+                        </div>
+                    </div>
