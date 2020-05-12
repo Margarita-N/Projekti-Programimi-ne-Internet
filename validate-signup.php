@@ -1,6 +1,9 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        session_start();
+
         require("db/dbconfig.php");
+        require("user-class.php");
         $conn=new mysqli(serverName,username,password,dbname);
 
         $username=$_POST['username'];
@@ -11,8 +14,9 @@
         $state=$_POST['state'];
 
         $passwordLength=strlen($password);
+    
         if($username=="" || $email=="" || $password=="" || $confirmPassword==""){
-            echo '<span class="red">All fields must be filled!</span>'.$passwordLength;
+            echo '<span class="red">All fields must be filled!</span>';
         }
         else{
             $stmt=$conn->prepare("SELECT * FROM perdoruesit WHERE email=?");
@@ -36,5 +40,42 @@
             elseif(!preg_match('@[A-Z]@',$password) || !preg_match('@[a-z]@',$password) || !preg_match('@[0-9]@',$password)){
                 echo '<span class="red">Password should contain a uppercase letter,lowercase letter and a digit!';
             }
-  }
-  ?>
+            else{
+                $driver = new mysqli_driver();
+                $driver->report_mode = MYSQLI_REPORT_STRICT;
+
+                try{
+                //Duhet me kriju nje pjese per me shiku a osht student email edhe me permisu
+                $emailArray=explode('.',$email);
+                $status=$emailArray[sizeof($emailArray)-1]=='edu';
+                
+
+
+                $md5Password=md5($password);
+                $insertQuery=$conn->prepare("INSERT INTO perdoruesit(username,passwordi,email,gjinia,shteti,ditelindja,statusi) values(?,?,?,?,?,?)");
+                $insertQuery->bind_param("ssssss",$username,$md5Password,$email,$gender,$state,$status);
+                $insertQuery->execute();
+
+                $selectQuery='SELECT * FROM perdoruesit WHERE email="'.$email.'"';
+                $resultArray=mysqli_query($conn,$selectQuery);
+                    
+                while($result=$resultArray->fetch_assoc()){
+                    $id=$result['userID'];
+                }
+
+                $logedInUser=new user($id,$username,$password);
+                $_SESSION['user']=$logedInUser;
+
+                echo 'Thank you for signing up.<br>You are now logged in!';
+                }catch(mysqli_sql_exception $e){
+                    echo $e->getMessage();//'<span class="red">Registration failed!<br>Refresh and try again</span>';
+                }
+                
+                
+                $conn->close();
+            }
+        }
+    }
+    // /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/
+?>
+
