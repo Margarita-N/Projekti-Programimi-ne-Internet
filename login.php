@@ -1,9 +1,13 @@
+<?php 
+session_start();
+require('user-class.php');
+?>
 <html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>winter</title>
+    <title>Log In</title>
     <link rel="icon" href="img/favicon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -31,12 +35,18 @@
     }</style>
     <script>
         $(document).ready(function(){
+            $("#email").click(function(){
+                <?php if(isset($_SESSION['user'])){
+                    ?>alert("An account is already logged in!\nContinue anyway.");<?php
+                }
+                ?>
+            });
             $("form").submit(function(event){
                 event.preventDefault();
                 var email=$("#email").val();
                 var password=$("#password").val();
                 var remember=($("#f-option").prop("checked")? 1:0);
-                
+
                 if(email=="" || password==""){
                     $.ajax({
                         url: "validate.php",
@@ -154,23 +164,6 @@
     </header>
     <!-- Header part end-->
     
-    <!--================Home Banner Area =================-->
-    <!-- breadcrumb start-->
-    <section class="breadcrumb breadcrumb_bg">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="breadcrumb_iner">
-                        <div class="breadcrumb_iner_item">
-                            <p>Home / Login</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- breadcrumb start-->
-
     <!--================login_part Area =================-->
     <section class="login_part section_padding">
         <div class="container">
@@ -179,9 +172,8 @@
                     <div class="login_part_text text-center">
                         <div class="login_part_text_iner">
                             <h2>New to our Shop?</h2>
-                            <p>There are advances being made in science and technology
-                                everyday, and a good example of this is the</p>
-                            <a href="#" class="btn_3">Create an Account</a>
+                            <p>Sign Up to experience the magic of books with a click!</p>
+                            <a href="signup.php" class="btn_3">Create an Account</a>
                         </div>
                     </div>
                 </div>
@@ -193,10 +185,26 @@
                                 <p class="error-field"></p>
                             <form id="login-form" class="row contact_form" action="validate.php" method="post">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" value="<?php 
+                                        if(isset($_COOKIE['rememberedUser'])){
+                                            $user=unserialize($_COOKIE['rememberedUser']);
+                                            echo $user->getEmail();
+                                        }
+                                        else{
+                                            echo "Ska cookie";
+                                        }
+                                        ?>" >
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php 
+                                        if(isset($_COOKIE['rememberedUser'])){
+                                            $user=unserialize($_COOKIE['rememberedUser']);
+                                            echo $user->getPassword();
+                                        }
+                                        else{
+                                            echo "";
+                                        }
+                                        ?>">
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <div class="creat_account d-flex align-items-center">
