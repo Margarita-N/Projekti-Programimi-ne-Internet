@@ -32,3 +32,16 @@
     <?php
     require("header.php");
     ?>
+    <div style="background-color:lightgray;text-align:center;font-size:40px;background-image:url(/img/img.png);background-size:auto;background-repear:no-repeat" >
+
+</br>
+    <h1 style="text-align:center;color:darksalmon;font-size:50px">GJEJ EMRIN E LIBRIT</h1>
+</br>
+
+<?php
+
+    $MAX_ATTEMPTS=5;            
+    $WORDLISTFILE='wordlist.txt';
+
+
+
