@@ -81,3 +81,36 @@
                 </div>
             </div>
         </section>
+    
+    <section class="new_arrival section_padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="arrival_tittle">
+                        <h2 style="margin-left: 300px;">FILLO UDHETIMIN</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="new_arrival_iner filter-container">
+                        <div class="single_arrivel_item weidth_1 mix shoes" style="margin-left: 150px;">
+                            <div class="img-resize"><img src="img/Princesha Argjiro.jpg" alt="#"></div>
+                            <div class="hover_text">
+                                <p>Botim i ri</p>
+                                <a href="single-product.html"><h3>Kliko shporten per te blere</h3></a>
+                                <div class="rate_icon">
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    
+                                </div>
+                                <h5>5€</h5>
+                                <div class="social_icon">
+                                    <a href="#"><i class="ti-bag"></i></a>
+                                </div>
+                            </div>
+                        </div>
