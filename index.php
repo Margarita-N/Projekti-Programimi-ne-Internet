@@ -68,3 +68,16 @@
                             <p style="font-size: medium;text-align: center;margin-left: 20px;margin-right: 20px;"><strong>MICHELLE OBAMA</strong>,autorja amerikane,dikur zonja e pare e SHBA eshte votuar e preferuara jone.E kete epitet e ka fituar me botimin e librit te saj BestSeller "BECOMING",nje liber mjaft i fuqishem dhe inspirues per te zbuluar zerin brenda teje</p>
                         </div>
                     </div>
+
+          <div class="col-lg-4 col-sm-6">
+                        <div class="single_feature_post_text">
+                            <div class="img-resize" style="text-align: center;margin-left: 50px;margin-top:30px;"><img src="img/Libri i ri.jpg" alt="#"></div>
+                            <h3 style="font-family: fantasy;margin-left: 120px;">BOTIMI ME I RI</h3>
+                            <p style="font-size: medium;text-align: center;margin-left: 20px;margin-right: 30px;"><strong>THE WEDDING DRESS</strong>,libri i botuar nga Danielle Steel me 28 Prill 2020,nje novele e re,jeta e kater gjeneratave te gruas se nje familje.Botimi me i ri tani mund ta bleni edhe ne faqen tone...</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
