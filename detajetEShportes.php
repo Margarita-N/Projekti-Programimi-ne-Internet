@@ -1,160 +1,112 @@
-<?php 
-
-$message = '';
-
-if(isset($_GET["action"]))
-{
- if($_GET["action"] == "delete")
- {
-  $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-  $cart_data = json_decode($cookie_data, true);
-  foreach($cart_data as $keys => $values)
-  {
-   if($cart_data[$keys]['item_id'] == $_GET["id"])
-   {
-    unset($cart_data[$keys]);
-    $item_data = json_encode($cart_data);
-    setcookie("shopping_cart", $item_data, time() + (86400 * 30));
-    header("location:formaa.php?remove=1");
-   }
-  }
- }
- if($_GET["action"] == "clear")
- {
-  setcookie("shopping_cart", "", time() - 3600);
-  header("location:formaa.php?clearall=1");
- }
-}
-
-if(isset($_GET["success"]))
-{
- $message = '
- <div class="alert alert-success alert-dismissible">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    Libri u shtu ne shporte me sukses 
- </div>
- ';
-}
-
-if(isset($_GET["remove"]))
-{
- $message = '
- <div class="alert alert-success alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  Libri u largua nga shporta
- </div>
- ';
-}
-if(isset($_GET["clearall"]))
-{
- $message = '
- <div class="alert alert-success alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  Te gjitha gjerat en shporte jane fshire...
- </div>
- ';
-}
-
-?>
-
-<!DOCTYPE html>
-<html>
- <head>
-  <title>Shporta</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>BiblioTech</title>
-    <link rel="icon" href="img/bookicon.jpg">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="css/all.css">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <!-- swiper CSS -->
-    <link rel="stylesheet" href="css/slick.css">
-    <!-- style CSS -->
-    <link rel="stylesheet" href="css/style.css">
- </head>
- <body>
 <?php
-require('header.php');
+
+session_start();
+
+require_once ("db/dbconfig.php");
+require_once ("component.php");
+
+if (isset($_POST['remove'])){
+  if ($_GET['action'] == 'remove'){
+      foreach ($_SESSION['cart'] as $key => $value){
+          if($value["product_id"] == $_GET['id']){
+              unset($_SESSION['cart'][$key]);
+              echo "<script>alert('Libri u fshi...!')</script>";
+              echo "<script>window.location = 'cartii.php'</script>";
+          }
+      }
+  }
+}
+
+
 ?>
-  <br />
-  <div class="container">
-   <br />
-   <h3 align="center">Shporta juaj </h3><br />
-   <br /><br />
- 
-   
-   
-   <div style="clear:both"></div>
-   <br />
-   <h3>Detajet e librave te porositur</h3>
-   <div class="table-responsive">
-   <?php echo $message; ?>
-   <div align="right">
-    <a href="formaa.php?action=clear"><b>Clear Cart</b></a>
-   </div>
-   <table class="table table-bordered">
-    <tr>
-     <th width="40%">Emri i librit</th>
-     <th width="10%">Sasia</th>
-     <th width="20%">Cmimi</th>
-     <th width="15%">Total</th>
-     <th width="5%">Fshije</th>
-    </tr>
-   <?php
-   if(isset($_COOKIE["shopping_cart"]))
-   {
-    $total = 0;
-    $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-    $cart_data = json_decode($cookie_data, true);
-    foreach($cart_data as $keys => $values)
-    {
-   ?>
-    <tr>
-     <td><?php echo $values["item_name"]; ?></td>
-     <td><?php echo $values["item_quantity"]; ?></td>
-     <td> <?php echo $values["item_price"]; ?>€</td>
-     <td> <?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?>€</td>
-     <td><a href="index.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
-    </tr>
-   <?php 
-     $total = $total + ($values["item_quantity"] * $values["item_price"]);
-    }
-   ?>
-    <tr>
-     <td colspan="3" align="right">Total</td>
-     <td align="right"><?php echo number_format($total, 2); ?>€</td>
-     <td></td>
-    </tr>
-   <?php
-   }
-   else
-   {
-    echo '
-    <tr>
-     <td colspan="5" align="center">Ju nuk keni asnje liber ne shporte</td>
-    </tr>
-    ';
-   }
-   ?>
-   </table>
-   </div>
-  </div>
-  <br />
- </body>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Shporta</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+<?php
+    require_once ('header.php');
+?>
+
+<div class="container-fluid">
+    <div class="row px-5">
+        <div class="col-md-7">
+            <div class="shopping-cart">
+               
+                <hr>
+
+                <?php
+                $total = 0;
+                    if (isset($_SESSION['cart'])){
+                        $product_id = array_column($_SESSION['cart'], 'product_id');
+
+                        $result = getData();
+                        while ($row = mysqli_fetch_assoc($result)){
+                            foreach ($product_id as $id){
+                                if ($row['bookID'] == $id){
+                                    cartElement($row['fotoPath'], $row['bookName'],$row['price'], $row['bookID']);
+                                    $total = $total + (int)$row['price'];
+                                }
+                            }
+                        }
+                    }else{
+                        echo "<h5>Shporta eshte e zbrazet</h5>";
+                    }
+
+                ?>
+
+            </div>
+        </div>
+        <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
+
+            <div class="pt-4">
+                <h6>Detajet e blerjes</h6>
+                <hr>
+                <div class="row price-details">
+                    <div class="col-md-6">
+                        <?php
+                            if (isset($_SESSION['cart'])){
+                                $count  = count($_SESSION['cart']);
+                                echo "<h6>Cmimi ($count libra)</h6>";
+                            }else{
+                                echo "<h6>Cmimi (Asnje liber)</h6>";
+                            }
+                        ?>
+                        <hr>
+                        <h6>Shuma per t'u paguar</h6>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>€<?php echo $total; ?></h6>
+                        
+                        <hr>
+                        <h6>€<?php
+                            echo $total;
+                            ?></h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 </html>
