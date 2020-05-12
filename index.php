@@ -114,3 +114,23 @@
                                 </div>
                             </div>
                         </div>
+                         <div class="single_arrivel_item weidth_2 mix women">
+                            <div class="img-resize"> <img src="img/nena-e-besimtareve.jpg" alt="#"></div>
+                            <div class="hover_text">
+                                <p>Botim i ri</p>
+                                <a href="single-product.html"><h3>Kliko shporten per te blere</h3></a>
+                                <div class="rate_icon">
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                </div>
+                                <h5>10€</h5>
+                                <div class="social_icon">
+                                   
+                                    <a href="#"><i class="ti-bag"></i></a>
+                                    
+                                </div>
+                            </div>
+                        </div>
