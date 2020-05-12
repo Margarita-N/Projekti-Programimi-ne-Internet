@@ -134,3 +134,20 @@
                                 </div>
                             </div>
                         </div>
+                        
+                          <div class="single_arrivel_item weidth_3 mix shoes women" style="margin-right: 150px;" >
+                            <img src="img/The Communist Manifesto.jpg" alt="#">
+                            <div class="hover_text">
+                                <p>Botim i ri</p>
+                                <a href="single-product.html"><h3>Kliko shporten per te blere</h3></a>
+                                <div class="rate_icon">
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    <a href="#"> <i class="fas fa-star"></i> </a>
+                                    
+                                </div>
+                                <h5>13€</h5>
+                                <div class="social_icon">
+                                    
+                                    <a href="#"><i class="ti-bag"></i></a>
+                                </div>
