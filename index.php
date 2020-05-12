@@ -151,3 +151,52 @@
                                     
                                     <a href="#"><i class="ti-bag"></i></a>
                                 </div>
+                                 </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="shipping_details section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_shopping_details">
+                        <img src="img/icon/icon_2.png" alt="">
+                        <h4>Blej libra,fito zbritje</h4>
+                        <p>Faqja BiblioTech ua mundëson blerjen e librave online me një click.Ne sigurisht se mendojme per ju qe bleni libra me shpesh dhe ofrojme zbritje ne cmim.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_shopping_details">
+                        <img src="img/icon/icon_1.png" alt="">
+                        <h4>Transporti</h4>
+                        <p>Mjafton te paguani cmimin e librit, per transport mos u shqetesoni!!Ju vie ne shtepi pa pagese shtese.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_shopping_details">
+                        <img src="img/icon/icon_3.png" alt="">
+                        <h4>Pagesa</h4>
+                        <p>Ne ofrojme mundesine e pageses me kartele te ciles do banke cofte ajo lokale apo nderkombtare</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single_shopping_details">
+                        <img src="img/icon/icon_4.png" alt="">
+                        <h4>Asistenca</h4>
+                        <p>Per cdo paqartesi cofte ajo ne lidhje me porosine e librave apo edhe tjeter mund te telefononi ne cdo kohe.Ne ofrojme asistence 24/7.Per infot e kontaktit shtypni butonin Kontakti ne menu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
