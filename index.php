@@ -198,5 +198,34 @@
             </div>
         </div>
     </section>
+<section class="instagram_photo">
 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="instagram_photo_iner">
+                        <div class="single_instgram_photo">
+                            <img src="img/libraria1.jpg" alt="">
+                            
+                        </div>
+                        <div class="single_instgram_photo">
+                            <img src="img/libraria2.jpeg" alt="">
+                            
+                        </div>
+                        <div class="single_instgram_photo">
+                            <img src="img/libraria3.jpg" alt="">
+                            
+                        </div>
+                        <div class="single_instgram_photo">
+                            <img src="img/libraria4.jpg" alt="">
+                             
+                        </div>
+                        <div class="single_instgram_photo">
+                            <img src="img/libraria5.jpg" alt="">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
