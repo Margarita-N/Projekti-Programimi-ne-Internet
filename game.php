@@ -104,5 +104,22 @@ function checkAndReplace($userInput, $hidden, $answer)
     return $hidden;
 }
 
+function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
+{
+    if ($userAttempts >= $MAX_ATTEMPTS)
+        {
+            echo '<h2 style="text-align:center">Loja mbaroi.Ju nuk e keni gjetur emrin e librit: </h2>';
+            foreach ($answer as $letter) echo $letter;
+           echo '<h2 style="text-align:center"><br><form action = "" method = "post"><input type = "submit" name= "newWord" value = "Provo te gjesh librin tjeter"/><br><br><br><br><br><br></form><br></h2>';
+            die();
+        }
+        if ($hidden == $answer)
+        {
+            echo '<h2 style="text-align:center">Loja mbaroi.Ju keni gjetur emrin e librit: </h2>';
+            foreach ($answer as $letter) echo $letter;
+            echo '<h2 style="text-align:center"><br><form action = "" method = "post"><input type = "submit" name = "newWord" value = "Provo te gjesh librin tjeter"/><br><br><br><br><br><br></form><br></h2>';
+            die();
+        }
+}
 
 
