@@ -60,8 +60,23 @@
                                 </li>
                             </ul>
                         </div>
+                         <div class="d-flex">
+                            <div class="mr-auto">
+                                <a href="cart.php" class="nav-item nav-link active"><h5 class="px-5 cart">
+							                           	<i class="fas fa-shopping-cart"></i>Shporta
+                            <?php
+
+                         if (isset($_SESSION['cart'])){
+                            $count = count($_SESSION['cart']);
+                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">$count</span>";
+                        }else{
+                            echo "<span id=\"cart_count\" class=\"text-warning bg-light\">0</span>";
+                        }
+
+                            ?>
+                         </h5></a> 
+						
                             </div>
-                             
                            <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
                         </div>
                     </nav>
