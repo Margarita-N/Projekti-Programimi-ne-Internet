@@ -3,7 +3,7 @@
         session_start();
 
         require("db/dbconfig.php");
-        require("user-class.php");
+        require("reusable/user-class.php");
         $conn=new mysqli(serverName,username,password,dbname);
 
         $username=$_POST['username'];
@@ -45,30 +45,27 @@
                 $driver->report_mode = MYSQLI_REPORT_STRICT;
 
                 try{
-                //Duhet me kriju nje pjese per me shiku a osht student email edhe me permisu
-                $emailArray=explode('.',$email);
-                $status=$emailArray[sizeof($emailArray)-1]=='edu';
-                
-
-
-                $md5Password=md5($password);
-                $insertQuery=$conn->prepare("INSERT INTO perdoruesit(username,passwordi,email,gjinia,shteti,ditelindja,statusi) values(?,?,?,?,?,?)");
-                $insertQuery->bind_param("ssssss",$username,$md5Password,$email,$gender,$state,$status);
-                $insertQuery->execute();
-
-                $selectQuery='SELECT * FROM perdoruesit WHERE email="'.$email.'"';
-                $resultArray=mysqli_query($conn,$selectQuery);
+                    $emailArray=explode('.',$email);
+                    $status=$emailArray[sizeof($emailArray)-1]=='edu'? 'student':'regular';
                     
-                while($result=$resultArray->fetch_assoc()){
-                    $id=$result['userID'];
-                }
+                    $md5Password=md5($password);
+                    $insertQuery=$conn->prepare("INSERT INTO perdoruesit(username,passwordi,email,gjinia,shteti,statusi) values(?,?,?,?,?,?)");
+                    $insertQuery->bind_param("ssssss",$username,$md5Password,$email,$gender,$state,$status);
+                    $insertQuery->execute();
 
-                $logedInUser=new user($id,$username,$password);
-                $_SESSION['user']=$logedInUser;
+                    $selectQuery='SELECT * FROM perdoruesit WHERE email="'.$email.'"';
+                    $resultArray=mysqli_query($conn,$selectQuery);
+                        
+                    while($result=$resultArray->fetch_assoc()){
+                        $id=$result['userID'];
+                    }
 
-                echo 'Thank you for signing up.<br>You are now logged in!';
-                }catch(mysqli_sql_exception $e){
-                    echo $e->getMessage();//'<span class="red">Registration failed!<br>Refresh and try again</span>';
+                    $logedInUser=new user($id,$username,$password,$email);
+                    $_SESSION['user']=$logedInUser;
+
+                    echo 'Thank you for signing up.<br>You are now logged in!';
+                }catch(Exception $e){
+                    echo '<span class="red">Registration failed!<br>Refresh and try again</span>';
                 }
                 
                 
