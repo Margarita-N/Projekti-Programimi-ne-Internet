@@ -87,6 +87,22 @@ function hideCharacters($answer)
     }
     return $hidden;
 }
+function checkAndReplace($userInput, $hidden, $answer)
+{
+    $i = 0;
+    $correctguess = true;
+    while($i <count($answer))
+    {
+        if ($answer[$i] == $userInput)
+        {
+            $hidden[$i] = $userInput;
+            $correctguess = false;
+        }
+        $i = $i + 1;
+    }
+    if (!$correctguess) $_SESSION['attempts'] = $_SESSION['attempts'] - 1;
+    return $hidden;
+}
 
 
 
