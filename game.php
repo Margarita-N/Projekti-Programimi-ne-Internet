@@ -146,5 +146,24 @@ function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
     $hidden = $_SESSION['hidden'];
     foreach ($hidden as $char) echo $char.' ';
 ?>
+<script type="application/javascript">
+    function validateInput()
+    {
+    var x=document.forms["inputForm"]["userInput"].value;
+    if (x=="" || x==" ")
+      {
+          alert("Ju lutem shenoni nje shkronje");
+          return false;
+      }
+    if (!isNaN(x))
+    {
+        alert("Ju lutem shenoni nje shkronje");
+        return false;
+    }
+}
+</script>
+</br>
+</br>
+</br>
 
 
