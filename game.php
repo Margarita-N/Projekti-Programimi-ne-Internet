@@ -122,4 +122,12 @@ function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
         }
 }
 
-
+ if (isset($_POST['newWord'])) unset($_SESSION['answer']);
+    if (!isset($_SESSION['answer']))
+    {
+        $_SESSION['attempts'] = 0;
+        $answer = wordsarray($WORDLISTFILE);
+        $_SESSION['answer'] = $answer;
+        $_SESSION['hidden'] = hideCharacters($answer);
+       
+        echo '<h4 style="text-align:center;font-size:25px">Mund te provoni edhe '.($MAX_ATTEMPTS - $_SESSION['attempts']).' here</h4>'.'<br>';
