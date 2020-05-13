@@ -174,3 +174,10 @@ function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
 </br>
 </br>
 </div>
+
+<?php
+require("footer.php");
+?>
+</body>
+</html>
+ 
