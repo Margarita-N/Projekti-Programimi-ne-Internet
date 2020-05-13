@@ -166,4 +166,11 @@ function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
 </br>
 </br>
 
-
+<form style="text-align:center" name = "inputForm" action = "" method = "post">
+<h3 style="color:black;font-size:25px">Shkronja qe mungon: <input style="border-color:darksalmon;border-size:10px;background-color:white" name = "userInput" type = "text" size="1" maxlength="1"  /></h3>
+<input type = "submit"  value = "Provo" onclick="return validateInput()" style="font-size:20px;border-color:darksalmon;border-size:10px;;background-color:white"/>
+<input  type = "submit" name = "newWord" value = "Provo ndonje liber tjeter" style="font-size:20px;border-color:darksalmon;;background-color:white"/>
+</form>
+</br>
+</br>
+</div>
