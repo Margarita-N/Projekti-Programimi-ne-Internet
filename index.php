@@ -1,7 +1,53 @@
+<?php
+
+session_start();
+
+require_once ('db/dbconfig.php');
+require_once ('reusable/component.php');
+
+if (isset($_POST['add'])){
+    if(isset($_SESSION['cart'])){
+
+        $item_array_id = array_column($_SESSION['cart'], "product_id");
+
+        if(in_array($_POST['product_id'], $item_array_id)){
+            echo "<script>alert('Produkti tani me eshte ne shporte..!')</script>";
+            echo "<script>window.location = 'index.php'</script>";
+        }else{
+
+            $count = count($_SESSION['cart']);
+            $item_array = array(
+                'product_id' => $_POST['product_id']
+            );
+
+            $_SESSION['cart'][$count] = $item_array;
+        }
+    }else{
+
+        $item_array = array(
+                'product_id' => $_POST['product_id']
+        );
+
+        // Create new session variable
+        $_SESSION['cart'][0] = $item_array;
+        print_r($_SESSION['cart']);
+    }
+}
+
+
+?>
 <!doctype html>
 <html lang="zxx">
 
 <head>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,7 +89,7 @@
                                     <h5>Platforme online per shitjen e librave</h5>
                                     <h1>So many books,so little time...</h1>
                                    
-                           </div>
+                                 </div>
                             </div>
                         </div>
                     </div>
@@ -93,77 +139,22 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="new_arrival_iner filter-container">
-                        <div class="single_arrivel_item weidth_1 mix shoes" style="margin-left: 150px;">
-                            <div class="img-resize"><img src="img/Princesha Argjiro.jpg" alt="#"></div>
-                            <div class="hover_text">
-                                <p>Botim i ri</p>
-                                <a href="single-product.html"><h3>Kliko shporten per te blere</h3></a>
-                                <div class="rate_icon">
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    
-                                </div>
-                                <h5>5€</h5>
-                                <div class="social_icon">
-                                    <a href="#"><i class="ti-bag"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="single_arrivel_item weidth_2 mix women">
-                            <div class="img-resize"> <img src="img/nena-e-besimtareve.jpg" alt="#"></div>
-                            <div class="hover_text">
-                                <p>Botim i ri</p>
-                                <a href="single-product.html"><h3>Kliko shporten per te blere</h3></a>
-                                <div class="rate_icon">
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                </div>
-                                <h5>10€</h5>
-                                <div class="social_icon">
-                                   
-                                    <a href="#"><i class="ti-bag"></i></a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        
-                          <div class="single_arrivel_item weidth_3 mix shoes women" style="margin-right: 150px;" >
-                            <img src="img/The Communist Manifesto.jpg" alt="#">
-                            <div class="hover_text">
-                                <p>Botim i ri</p>
-                                <a href="single-product.html"><h3>Kliko shporten per te blere</h3></a>
-                                <div class="rate_icon">
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    <a href="#"> <i class="fas fa-star"></i> </a>
-                                    
-                                </div>
-                                <h5>13€</h5>
-                                <div class="social_icon">
-                                    
-                                    <a href="#"><i class="ti-bag"></i></a>
-                                </div>
-                                 </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div> 
+           <div class="col-lg-12">
+	     	<div class="container">
+               <div class="row text-center py-9">
+			      <div class="new_arrival_iner filter-container">
+			   <?php
+                  $result = getData();
+                while ($row = mysqli_fetch_assoc($result)){
+                    component( $row['bookName'],$row['price'],$row['fotoPath'],$row['bookID']);
+                   }
+                 ?>
+				 </div>
+				 </div>
+				 </div>
             </div>
         </div>
     </section>
-
-
-
-
     <section class="shipping_details section_padding">
         <div class="container">
             <div class="row">
