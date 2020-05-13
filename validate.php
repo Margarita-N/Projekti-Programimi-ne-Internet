@@ -1,6 +1,6 @@
 <?php
 session_start();
-require("user-class.php");
+require("reusable/user-class.php");
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email=$_POST['email'];
     $password=$_POST['password'];
