@@ -1,7 +1,7 @@
 <?php
 
 function component($productname, $productprice, $productimg, $productid){
-    $arr = array('bookImg',$productimg);
+    $arr = array('img',$productimg);
 	$k= implode("\\",$arr);
 	$element = "
     
