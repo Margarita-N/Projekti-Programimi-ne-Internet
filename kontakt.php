@@ -130,7 +130,7 @@ if(isset($_POST["submit"]))
    
    
    <?php
-    require("headerr.php");
+    require("header.php");
     ?>
  
   <br />
