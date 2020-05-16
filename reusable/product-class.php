@@ -21,3 +21,22 @@ class product{
     public function getBookName(){
         return $this->bookName;
     }
+    public function getPrice(){
+        return $this->price;
+    }
+
+    public function getQuantity(){
+        return $this->quantity;
+    }
+
+    public function getPath(){
+        return $this->fotoPath;
+    }
+
+    public function setQuantity($quantity){
+        $this->quantity=$quantity;
+    }
+
+}
+
+?>
