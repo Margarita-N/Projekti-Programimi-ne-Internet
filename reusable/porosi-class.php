@@ -37,3 +37,41 @@ class porosia{
     public function getQuantity(){
         return $this->bookId;
     }
+    
+    public function decrementStock($conn){
+        $selectQuery='SELECT stock FROM librat WHERE bookID='.$this->bookId;
+        $resultArray=mysqli_query($conn,$selectQuery);
+
+        while($result=$resultArray->fetch_assoc()){
+            $stock=$result['stock'];
+        }
+        
+        $stock=$stock-($this->quantity);
+        $decrementQuery='UPDATE librat SET stock='.$stock.' WHERE bookID='.$this->bookId;
+
+        mysqli_query($conn,$decrementQuery);
+    }
+
+    public function createOrder($conn,$pagesa){
+        $createOrderQuery=$conn->prepare('INSERT INTO porosite(userID,statusi,adresa,kontakti,emri,mbiemri,shteti,qyteti,pagesa) VALUES(?,?,?,?,?,?,?,?,?)');
+        $createOrderQuery->bind_param("isssssssd",$this->userID,$this->statusi,$this->adresa,$this->kontakti,$this->emri,$this->mbiemri,$this->shteti,$this->qyteti,$pagesa);
+        $createOrderQuery->execute();
+
+        $selectIdQuery='SELECT porosiID FROM porosite ORDER BY porosiID DESC LIMIT 1';
+        $results=mysqli_query($conn,$selectIdQuery);
+
+        while($porosi=$results->fetch_assoc()){
+            $porosiID=$porosi['porosiID'];
+        }
+
+        return $porosiID;
+    }
+
+    public function detailedOrder($conn,$porosiID){
+        $insertQuery=$conn->prepare('INSERT INTO porosidetails(porosiID,bookID,sasia) VALUES(?,?,?)');
+        $insertQuery->bind_param("iii",$porosiID,$this->bookId,$this->quantity);
+        $insertQuery->execute();
+    }
+}
+
+?>
