@@ -20,12 +20,12 @@ $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-$_SESSION['msg']="Brand Listed successfully";
+$_SESSION['msg']="U listua me sukses ! ";
 header('location:manage-categories.php');
 }
 else 
 {
-$_SESSION['error']="Something went wrong. Please try again";
+$_SESSION['error']="Ka disa probleme.Ju lutem provoni prap !";
 header('location:manage-categories.php');
 }
 
