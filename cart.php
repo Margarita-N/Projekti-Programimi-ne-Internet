@@ -1,73 +1,56 @@
 <?php
-
-session_start();
-
 require_once ("db/dbconfig.php");
 require_once ("reusable/component.php");
-
-if (isset($_POST['remove'])){
-  if ($_GET['action'] == 'remove'){
-      foreach ($_SESSION['cart'] as $key => $value){
-          if($value["product_id"] == $_GET['id']){
-              unset($_SESSION['cart'][$key]);
-              echo "<script>alert('Produkti u largua nga shporta...!')</script>";
-              echo "<script>window.location = 'cart.php'</script>";
-          }
-      }
-  }
-}
+require_once ("reusable/product-class.php");
+require_once ("reusable/user-class.php");
+session_start();
 
 
 ?>
 
-<!doctype html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    
-    <title>Shporta</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>winter</title>
+  <link rel="icon" href="img/favicon.png">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- animate CSS -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- owl carousel CSS -->
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <!-- font awesome CSS -->
+  <link rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="css/nice-select.css">
+  <!-- flaticon CSS -->
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/themify-icons.css">
+  <!-- font awesome CSS -->
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <!-- swiper CSS -->
+  <link rel="stylesheet" href="css/slick.css">
+  <!-- swiper CSS -->
+  <link rel="stylesheet" href="css/price_rangs.css">
+  <!-- style CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+      #removeBtn{
+          padding:10px;
+          background-color:#f76969;
+          color:white;
+          border-radius:5px;
+      }
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>BiblioTech</title>
-    <link rel="icon" href="img/bookicon.jpg">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="css/all.css">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <!-- swiper CSS -->
-    <link rel="stylesheet" href="css/slick.css">
-    <!-- style CSS -->
-    <link rel="stylesheet" href="css/style.css">
-	
-	
-	<link rel="icon" href="img/favicon.png">
-  <link rel="stylesheet" href="css/lightslider.min.css">
+  </style>
 </head>
-<body class="bg-light">
 
-<?php
-    require_once ('header.php');
-?>
-
-<div class="container-fluid">
+<body class="bg-white">
+  <?php require("header.php"); ?>
+  <!-- Header part end-->
+  
+  <div class="container-fluid">
     <div class="row px-5">
         <div class="col-md-7">
             <div class="shopping-cart">
@@ -77,16 +60,29 @@ if (isset($_POST['remove'])){
                 <?php
                 $total = 0;
                     if (isset($_SESSION['cart'])){
-                        $product_id = array_column($_SESSION['cart'], 'product_id');
-
-                        $result = getData();
-                        while ($row = mysqli_fetch_assoc($result)){
-                            foreach ($product_id as $id){
-                                if ($row['bookID'] == $id){
-                                    cartElement($row['fotoPath'], $row['bookName'],$row['price'], $row['bookID']);
-                                    $total = $total + (int)$row['price'];
-                                }
-                            }
+                        for($i=0;$i<sizeof($_SESSION['cart']);$i++){
+                            $product=$_SESSION['cart'][$i];
+                            echo "<form action=\"cartii.php?action=remove&id=".$product->getID()."\" method=\"post\" class=\"cart-items\">
+                                            <div class=\"border rounded\">
+                                                <div class=\"row bg-white\">
+                                                    <div class=\"col-md-3 pl-0\">
+                                                        <img src=".$product->getPath()." alt=\"Image1\" class=\"img-fluid\">
+                                                    </div>
+                                                    <div class=\"col-md-6\">
+                                                        <h5 class=\"pt-2\">".$product->getBookName()."</h5>
+                                                        <small class=\"text-secondary\">Shitesi: Bibliotech</small>
+                                                        <h5 class=\"pt-2\">€".$product->getPrice()."</h5>
+                                                        <a href='removeBook.php?id=".$i."' id=\"removeBtn\">Remove</a>
+                                                    </div>
+                                                    <div class=\"col-md-3 py-5\">
+                                                        <div>
+                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>";
+                                        $total=$total+$product->getPrice();
                         }
                     }else{
                         echo "<h5>Shporta eshte e zbrazet. </h5>";
@@ -113,6 +109,7 @@ if (isset($_POST['remove'])){
                         ?>
                         <hr>
                         <h6>Shuma per t'u paguar</h6>
+                        <hr>
                     </div>
                     <div class="col-md-6">
                         <h6>€<?php echo $total; ?></h6>
@@ -121,6 +118,11 @@ if (isset($_POST['remove'])){
                         <h6>€<?php
                             echo $total;
                             ?></h6>
+                            <hr>
+                    </div>
+                    <div class="col-md-6">
+                        <a href='checkout.php' style="background-color:#f76969;color:white;padding:10px;border-radius:5px">Paguaj</a>
+                        <hr>
                     </div>
                 </div>
             </div>
@@ -129,10 +131,42 @@ if (isset($_POST['remove'])){
     </div>
 </div>
 
+<!--::footer_part start::-->
+<?php require("footer.php"); ?>
+<!--::footer_part end::-->
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!-- jquery plugins here-->
+  <!-- jquery -->
+  <script src="js/jquery-1.12.1.min.js"></script>
+  <!-- popper js -->
+  <script src="js/popper.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- easing js -->
+  <script src="js/jquery.magnific-popup.js"></script>
+  <!-- swiper js -->
+  <script src="js/swiper.min.js"></script>
+  <!-- swiper js -->
+  
+  <!-- particles js -->
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.nice-select.min.js"></script>
+  <!-- slick js -->
+  <script src="js/slick.min.js"></script>
+  <script src="js/jquery.counterup.min.js"></script>
+  <script src="js/waypoints.min.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/jquery.ajaxchimp.min.js"></script>
+  <script src="js/jquery.form.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/mail-script.js"></script>
+  <script src="js/stellar.js"></script>
+  <script src="js/price_rangs.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>
