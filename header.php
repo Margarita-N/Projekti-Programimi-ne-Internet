@@ -40,13 +40,7 @@
                                         <a class="dropdown-item" href="#">FANTAZI</a>
                                     </div>
                                 </li>
-                             <li class="nav-item dropdown">
-                                    <a class="nav-link " href="ngjarje.php" 
-                                        role="button"  aria-haspopup="true" aria-expanded="false">
-                                        NGJARJE
-                                    </a>
-                                   
-                                </li>
+             
                                 <?php if(!isset($_SESSION['user'])){
                                     echo '<li class="nav-item dropdown">
                                     <a class="nav-link" href="login.php" 
