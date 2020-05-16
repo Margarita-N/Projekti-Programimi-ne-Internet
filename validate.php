@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $loggedInUser=new user($id,$username,$password,$email);
         $_SESSION['user']=$loggedInUser;
 
-        echo 'You are logged in!';
+        echo 'You are logged in!<script>history.go(-1);</script>';
         if($remember==1){
             if(isset($_COOKIE['rememberedUser'])){
                 setcookie('rememberedUser',time()-(86400*30));
