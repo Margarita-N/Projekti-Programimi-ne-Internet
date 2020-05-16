@@ -1,5 +1,6 @@
 <?php
     require("reusable/product-class.php");
+    require("reusable/user-class.php");
     session_start();
 ?>
 <!doctype html>
@@ -29,6 +30,14 @@
     <link rel="stylesheet" href="css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    #totali{
+      width:100px;
+      text-align:right;
+      border:none;
+      background-color:transparent;
+    }
+    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/search-books.js"></script>
     <script>
@@ -41,6 +50,7 @@
                 var shteti=$("#state").val();
                 var adresa=$("#adresa").val();
                 var qyteti=$("#city").val();
+                var pagesa=$("#totali").val();
 
                 $.ajax({
                     url: "bej-porosine.php",
@@ -50,7 +60,8 @@
                         numri:numri,
                         shteti:shteti,
                         adresa:adresa,
-                        qyteti:qyteti
+                        qyteti:qyteti,
+                        pagesa:pagesa
                     },
                     type:'POST',
                     success: function(result){
@@ -80,16 +91,13 @@
             <p class="error-field"></p>
             <form class="row contact_form" action="#" method="post" novalidate="novalidate">
               <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="first" name="name" />
-                <span class="placeholder" data-placeholder="Emri"></span>
+                <input type="text" class="form-control" id="first" name="name" placeholder="Emri"/>
               </div>
               <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="last" name="name" />
-                <span class="placeholder" data-placeholder="Mbiemri"></span>
+                <input type="text" class="form-control" id="last" name="name" placeholder="Mbiemri"/>
               </div>
               <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="number" name="number" />
-                <span class="placeholder" data-placeholder="Phone number"></span>
+                <input type="text" class="form-control" id="number" name="number" placeholder="Telefoni"/>
               </div>
               <div class="col-md-12 form-group p_star">
                 <select class="country_select" id="state">
@@ -99,12 +107,10 @@
                 </select>
               </div>
               <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="adresa" name="adresa" />
-                <span class="placeholder" data-placeholder="Adresa"></span>
+                <input type="text" class="form-control" id="adresa" name="adresa" placeholder="Adresa"/>
               </div>
               <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="city" name="city" />
-                <span class="placeholder" data-placeholder="Qyteti"></span>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Qyteti"/>
               </div>
               
             </form>
@@ -136,7 +142,7 @@
               <ul class="list list_2">
                 <li>
                   <a href="#">Total
-                    <span><?php echo $total; ?></span>
+                    <span><input type='text' id='totali' value='<?php echo $total; ?>' disabled></span>
                   </a>
                 </li>
               </ul>
