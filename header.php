@@ -16,8 +16,14 @@
                                     <a class="nav-link" href="index.php">BALLINA</a>
                                 </li>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="game.php">ARGETOHU</a>
+                                 <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="game.php" id="navbarDropdown_3" role="button" data-toggle="dropdown">ARGETOHU</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
+                                       
+                                        </a>
+                                        <a class="dropdown-item" href="game.php">LOJA</a>
+                                        <a class="dropdown-item" href="api.php">HARRY POTTER API</a>
+                                    </div>
                                 </li>
                               <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_3"
