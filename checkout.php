@@ -1,4 +1,7 @@
-
+<?php
+    require("reusable/product-class.php");
+    session_start();
+?>
 <!doctype html>
 <html lang="zxx">
 
@@ -28,7 +31,36 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/search-books.js"></script>
-   
+    <script>
+        $(document).ready(function(){
+            $("#porosiForm").submit(function(event){
+                event.preventDefault();
+                var emri=$("#first").val();
+                var mbiemri=$("#last").val();
+                var numri=$("#number").val();
+                var shteti=$("#state").val();
+                var adresa=$("#adresa").val();
+                var qyteti=$("#city").val();
+
+                $.ajax({
+                    url: "bej-porosine.php",
+                    data:{
+                        emri:emri,
+                        mbiemri:mbiemri,
+                        numri:numri,
+                        shteti:shteti,
+                        adresa:adresa,
+                        qyteti:qyteti
+                    },
+                    type:'POST',
+                    success: function(result){
+                            $(".error-field").html(result);
+                    }});
+                
+            })
+        })
+
+    </script>
 </head>
 
 <body>
@@ -86,12 +118,25 @@
                     <span>Total</span>
                   </a>
                 </li>
-                
+                <?php 
+                    $total=0;
+                    if (isset($_SESSION['cart'])){
+                        for($i=0;$i<sizeof($_SESSION['cart']);$i++){
+                            echo '<li>
+                                 <a href="#">'.$_SESSION['cart'][$i]->getBookName().'
+                                  <span class="last">'.$_SESSION['cart'][$i]->getPrice().'</span>
+                                 </a>
+                               </li>';
+                               $total=$total+$_SESSION['cart'][$i]->getPrice();
+                        }
+                        
+                    }
+                ?>
               </ul>
               <ul class="list list_2">
                 <li>
                   <a href="#">Total
-                    <span></span>
+                    <span><?php echo $total; ?></span>
                   </a>
                 </li>
               </ul>
