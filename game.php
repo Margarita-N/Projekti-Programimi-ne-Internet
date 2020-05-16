@@ -149,6 +149,7 @@ function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
 <script type="application/javascript">
     function validateInput()
     {
+    var letter= /^[A-Za-z]+$/;
     var x=document.forms["inputForm"]["userInput"].value;
     if (x=="" || x==" ")
       {
@@ -157,6 +158,10 @@ function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
       }
     if (!isNaN(x))
     {
+        alert("Ju lutem shenoni nje shkronje");
+        return false;
+    }
+    if (x!=letter){
         alert("Ju lutem shenoni nje shkronje");
         return false;
     }
