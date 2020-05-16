@@ -5,34 +5,34 @@ session_start();
 require_once ('db/dbconfig.php');
 require_once ('reusable/component.php');
 
-if (isset($_POST['add'])){
-    if(isset($_SESSION['cart'])){
+// if (isset($_POST['add'])){
+//     if(isset($_SESSION['cart'])){
 
-        $item_array_id = array_column($_SESSION['cart'], "product_id");
+//         $item_array_id = array_column($_SESSION['cart'], "product_id");
 
-        if(in_array($_POST['product_id'], $item_array_id)){
-            echo "<script>alert('Produkti tani me eshte ne shporte..!')</script>";
-            echo "<script>window.location = 'index.php'</script>";
-        }else{
+//         if(in_array($_POST['product_id'], $item_array_id)){
+//             echo "<script>alert('Produkti tani me eshte ne shporte..!')</script>";
+//             echo "<script>window.location = 'index.php'</script>";
+//         }else{
 
-            $count = count($_SESSION['cart']);
-            $item_array = array(
-                'product_id' => $_POST['product_id']
-            );
+//             $count = count($_SESSION['cart']);
+//             $item_array = array(
+//                 'product_id' => $_POST['product_id']
+//             );
 
-            $_SESSION['cart'][$count] = $item_array;
-        }
-    }else{
+//             $_SESSION['cart'][$count] = $item_array;
+//         }
+//     }else{
 
-        $item_array = array(
-                'product_id' => $_POST['product_id']
-        );
+//         $item_array = array(
+//                 'product_id' => $_POST['product_id']
+//         );
 
-        // Create new session variable
-        $_SESSION['cart'][0] = $item_array;
-        print_r($_SESSION['cart']);
-    }
-}
+//         // Create new session variable
+//         $_SESSION['cart'][0] = $item_array;
+//         print_r($_SESSION['cart']);
+//     }
+// }
 
 
 ?>
@@ -40,13 +40,6 @@ if (isset($_POST['add'])){
 <html lang="zxx">
 
 <head>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-
-    <!-- Bootstrap CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -69,15 +62,35 @@ if (isset($_POST['add'])){
     <link rel="stylesheet" href="css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/search-books.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("form").submit(function(event){
+                event.preventDefault();
+                var product_id=$("#product_id").val();
+
+                $.ajax({
+                    url: "add-to-cart.php",
+                    data:{id:product_id},
+                    type:'POST',
+                    success: function(result){
+                            alert("Produkti u shtua ne shporte!");
+                    }});
+                
+            })
+        })
+
+    </script>
 </head>
 
 <body>
-
-
-    <?php
-    require("header.php");
-    ?>
-<section class="banner_part">
+    <!--::header part start::-->
+    <?php require("header.php"); ?>
+    <!-- Header part end-->
+    
+    <!-- banner part start-->
+    <section class="banner_part">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
@@ -88,7 +101,7 @@ if (isset($_POST['add'])){
                                     <h5>Platforme online per shitjen e librave</h5>
                                     <h1>So many books,so little time...</h1>
                                    
-                                 </div>
+                           </div>
                             </div>
                         </div>
                     </div>
@@ -96,7 +109,14 @@ if (isset($_POST['add'])){
             </div>
         </div>
     </section>  
- <section class="feature_part pt-4">
+
+    <!-- banner part start-->
+    
+
+
+    <!-- feature_part start-->
+        <!-- feature_part start-->
+        <section class="feature_part pt-4">
             <div class="container-fluid p-lg-0 overflow-hidden">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-lg-4 col-sm-6">
@@ -106,15 +126,14 @@ if (isset($_POST['add'])){
                             <p style="font-size: medium;text-align: center;margin-left: 20px;margin-right: 20px;"><strong>SHITESI I KEPUCEVE</strong>,një sagë e mrekullueshme e inovacionit, mbijetesës, dhe triumfit e themeluesit të kompanisë Nike.Një rrëfim epik për dështimin e triumfine,besimin dhe suksesin fituar me mund dhe dashurinë...</p>    
                         </div>
                     </div>
-                     <div class="col-lg-4 col-sm-6">
+                    <div class="col-lg-4 col-sm-6">
                         <div class="single_feature_post_text">
                             <div class="img-resize" style="text-align: center;margin-left: 50px;margin-top: 30px;"><img src="img/Michelle.jpg" alt="#"></div>
                             <h3 style="font-family: fantasy;margin-left: 120px;">AUTORI I PREFERUAR</h3>
                             <p style="font-size: medium;text-align: center;margin-left: 20px;margin-right: 20px;"><strong>MICHELLE OBAMA</strong>,autorja amerikane,dikur zonja e pare e SHBA eshte votuar e preferuara jone.E kete epitet e ka fituar me botimin e librit te saj BestSeller "BECOMING",nje liber mjaft i fuqishem dhe inspirues per te zbuluar zerin brenda teje</p>
                         </div>
                     </div>
-
-          <div class="col-lg-4 col-sm-6">
+                    <div class="col-lg-4 col-sm-6">
                         <div class="single_feature_post_text">
                             <div class="img-resize" style="text-align: center;margin-left: 50px;margin-top:30px;"><img src="img/Libri i ri.jpg" alt="#"></div>
                             <h3 style="font-family: fantasy;margin-left: 120px;">BOTIMI ME I RI</h3>
@@ -126,7 +145,9 @@ if (isset($_POST['add'])){
                 </div>
             </div>
         </section>
-    
+        <!-- upcoming_event part start-->
+
+    <!-- new arrival part here -->
     <section class="new_arrival section_padding">
         <div class="container">
             <div class="row align-items-center">
@@ -138,22 +159,23 @@ if (isset($_POST['add'])){
             </div>
         </div>
         <div class="container-fluid">
-           <div class="col-lg-12">
-	     	<div class="container">
-               <div class="row text-center py-9">
-			      <div class="new_arrival_iner filter-container">
-			   <?php
-                  $result = getData();
-                while ($row = mysqli_fetch_assoc($result)){
-                    component( $row['bookName'],$row['price'],$row['fotoPath'],$row['bookID']);
-                   }
-                 ?>
-				 </div>
-				 </div>
-				 </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="new_arrival_iner filter-container">
+                    <?php
+                        $result = getData();
+                        while ($row = mysqli_fetch_assoc($result)){
+                            component( $row['bookName'],$row['price'],$row['fotoPath'],$row['bookID']);
+                        }
+                    ?>
+                    </div>
+                </div> 
             </div>
         </div>
     </section>
+    <!-- new arrival part end -->
+
+    <!-- free shipping here -->
     <section class="shipping_details section_padding">
         <div class="container">
             <div class="row">
@@ -188,8 +210,11 @@ if (isset($_POST['add'])){
             </div>
         </div>
     </section>
-<section class="instagram_photo">
+    <!-- free shipping end -->
 
+    <!-- subscribe_area part start-->
+    <section class="instagram_photo">
+       <!-- <div class="container-fluid>-->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="instagram_photo_iner">
@@ -218,9 +243,11 @@ if (isset($_POST['add'])){
             </div>
         </div>
     </section>
-<?php
-require("footer.php");
-?>
+    <!--::subscribe_area part end::-->
+
+    <!--::footer_part start::-->
+    <?php require('footer.php'); ?>
+    <!--::footer_part end::-->
 
     <!-- jquery plugins here-->
     <script src="js/jquery-1.12.1.min.js"></script>
@@ -254,4 +281,3 @@ require("footer.php");
 </body>
 
 </html>
-
