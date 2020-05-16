@@ -1,9 +1,11 @@
 <?php
 
-session_start();
-
 require_once ('db/dbconfig.php');
 require_once ('reusable/component.php');
+require_once ('reusable/user-class.php');
+session_start();
+
+
 
 // if (isset($_POST['add'])){
 //     if(isset($_SESSION['cart'])){
@@ -66,7 +68,7 @@ require_once ('reusable/component.php');
     <script src="js/search-books.js"></script>
     <script>
         $(document).ready(function(){
-            $("form").submit(function(event){
+            $(".cart-items").submit(function(event){
                 event.preventDefault();
                 var product_id=$("#product_id").val();
 
