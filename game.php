@@ -147,9 +147,9 @@ function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
     foreach ($hidden as $char) echo $char.' ';
 ?>
 <script type="application/javascript">
-    function validateInput()
+ function validateInput()
     {
-    var letter= /^[A-Za-z]+$/;
+
     var x=document.forms["inputForm"]["userInput"].value;
     if (x=="" || x==" ")
       {
@@ -161,7 +161,10 @@ function checkGameOver($MAX_ATTEMPTS,$userAttempts, $answer, $hidden)
         alert("Ju lutem shenoni nje shkronje");
         return false;
     }
-    if (x!=letter){
+    if (x.match(/^[a-zA-Z]+$/)){
+        return true;
+    }
+    else{
         alert("Ju lutem shenoni nje shkronje");
         return false;
     }
