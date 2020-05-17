@@ -12,3 +12,21 @@ console.log(url);
 
 
 Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+
+// create the type of element on page as passed in the parameters
+function createNode(element) {
+  return document.createElement(element);
+}
+
+// Append the second parameter(element) to the first one
+function append(parent, el) {
+  return parent.appendChild(el);
+}
+
+fetch(url, {key: key})
+  .then((resp) => resp.json()) // Transform the data into json
+  .then(function(data) {
+  // Get the results
+  var characters = data;
+  console.log(characters);
+  var random=Math.floor((Math.random() * 10) + 1);
