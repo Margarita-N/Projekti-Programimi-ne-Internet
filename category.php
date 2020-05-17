@@ -38,13 +38,13 @@ $resultArray=mysqli_query($conn,$query);
     <link rel="stylesheet" href="css/price_rangs.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/search-books.js"></script>
 </head>
 
 <body class="bg-white">
     <!--::header part start::-->
-    <?php 
-    require("header.php");
-    ?>
+    <?php require("header.php"); ?>
     <!-- Header part end-->
 
     <!--================Category Product Area =================-->
@@ -55,7 +55,7 @@ $resultArray=mysqli_query($conn,$query);
                     <div class="left_sidebar_area">
                         <aside class="left_widgets p_filter_widgets sidebar_box_shadow">
                             <div class="l_w_title">
-                                <h3>Shfletoni Kategoritë</h3>
+                                <h3>Kerko kategorite</h3>
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
@@ -63,31 +63,31 @@ $resultArray=mysqli_query($conn,$query);
                                         <a href="category.php?kategoria=Biografi">Biografi</a>
                                     </li>
                                     <li>
-                                        <a href="category.php?kategoria=">Ekonomi&Biznes</a>
+                                        <a href="category.php?kategoria=EkonomiBiznes">Ekonomi&Biznes</a>
                                     </li>
                                     <li>
-                                        <a href="category.php?kategoria=Biografi">Fantazi</a>
+                                        <a href="category.php?kategoria=Fantazi">Fantazi</a>
                                     </li>
                                     <li>
-                                        <a href="category.php?kategoria=Biografi">Filozofi&Sociologji</a>
+                                        <a href="category.php?kategoria=FilozofiSociologji">Filozofi&Sociologji</a>
                                     </li>
                                     <li>
-                                        <a href="category.php?kategoria=Biografi">Histori</a>
+                                        <a href="category.php?kategoria=Histori">Histori</a>
                                     </li>
                                     <li>
-                                        <a href="category.php?kategoria=Biografi">Letersi Shqiptare</a>
+                                        <a href="category.php?kategoria=Letersi Shqiptare">Letersi Shqiptare</a>
                                     </li>
                                     <li>
-                                        <a href="category.php?kategoria=Biografi">Libra per femije</a>
+                                        <a href="category.php?kategoria=Libra per femije">Libra per femije</a>
                                     </li>
                                     <li>
-                                        <a href="category.php?kategoria=Biografi">Religjioz</a>
+                                        <a href="category.php?kategoria=Religjioz">Religjioz</a>
                                     </li>
                                     <li>
-                                        <a href="category.php?kategoria=Biografi">Roman</a>
+                                        <a href="category.php?kategoria=Roman">Roman</a>
                                     </li>
                                     <li>
-                                        <a href="category.php?kategoria=Biografi">Shkenca sociale&Psikologji</a>
+                                        <a href="category.php?kategoria=ShkencaSocialePsiko">Shkenca sociale&Psikologji</a>
                                     </li>
                                 </ul>
                             </div>
@@ -112,7 +112,7 @@ $resultArray=mysqli_query($conn,$query);
                             echo '<div class="col-lg-4 col-sm-6">
                                     <div class="single_category_product">
                                         <div class="single_category_img">
-                                            <a href="libri.php?bookId='.$result['bookID'].'"><img src="'.$result['fotoPath'].'" alt="Fotot e Kategorive"></a>
+                                            <a href="libri.php?bookId='.$result['bookID'].'"><img src="'.$result['fotoPath'].'" alt="" style="width:240;height:364"></a>
                                             <div class="category_product_text">
                                                 <a href="single-product.html"><h5>'.$result['bookName'].'</h5></a>
                                                 <p>'.$result['price'].'€</p>
@@ -224,7 +224,6 @@ $resultArray=mysqli_query($conn,$query);
     <script src="js/jquery.counterup.min.js"></script>
     <script src="js/waypoints.min.js"></script>
     <script src="js/contact.js"></script>
-     <!-- slick js -->
     <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
