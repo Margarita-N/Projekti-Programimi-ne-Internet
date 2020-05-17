@@ -41,10 +41,6 @@
                         <td><input type="text" name="email" value="'.$result['email'].'"/></td>
                     </tr>
                     <tr>
-                        <td><label>Qyteti</label><td>
-                        <td><input type="text" name="qyteti" value="'.$result['qyteti'].'"/></td>
-                    </tr>
-                    <tr>
                         <td><label>Shteti</label><td>
                         <td><input type="text" name="shteti" value="'.$result['shteti'].'"/></td>
                     </tr>
@@ -60,13 +56,16 @@
                         $email=$_POST['email'];
                         $qyteti=$_POST['qyteti'];
                         $shteti=$_POST['shteti'];
+
+                        $HashedPass=md5($password);
         
-                        $query="UPDATE perdoruesit SET username='$username', passwordi='$password', email='$email', qyteti='$qyteti', shteti='$shteti' where userID=$ID";
+                        $query="UPDATE perdoruesit SET username='$username', passwordi='$HashedPass', email='$email', shteti='$shteti' where userID=$ID";
                         $editquery=mysqli_query($conn,$query);
                         if($editquery==true){
                             ?>
-                            <script>alert("Te dhenat jane edituar me sukses!")</script>
-                            <?php header("Location:users_AdminPage.php");
+                            <script>alert("Te dhenat jane edituar me sukses!");
+                                    window.location.assign("users_AdminPage.php")</script>
+                            <?php
                         }
                     }
               }
