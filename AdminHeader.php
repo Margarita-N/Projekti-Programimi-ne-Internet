@@ -16,11 +16,11 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item dropdown"><a href="#">Books</a>
+                <li class="nav-item dropdown"><a href="#">Librat</a>
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href="manage-books.php" class="dropdown-item">Manage Books</a></li>
-                            <li><a href="add-book.php" class="dropdown-item">Add book</a></li>
+                            <li><a href="manage-books.php" class="dropdown-item">Menaxhimi i Librave</a></li>
+                            <li><a href="add-book.php" class="dropdown-item">Shto librat</a></li>
                         </ul>
                     </div>
                 </li>
