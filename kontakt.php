@@ -1,4 +1,8 @@
 <?php
+
+include('includes/config.php');
+?>
+<?php
 session_start();
 $error = '';
 $name = '';
