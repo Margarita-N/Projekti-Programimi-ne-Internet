@@ -20,15 +20,15 @@
                     <div class="dropdown-menu">
                         <ul>
                             <li><a href="manage-books.php" class="dropdown-item">Menaxhimi i Librave</a></li>
-                            <li><a href="add-book.php" class="dropdown-item">Shto librat</a></li>
+                            <li><a href="add-book.php" class="dropdown-item">Shto libra</a></li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item dropdown"><a href="#">Categories</a>
+                <li class="nav-item dropdown"><a href="#">Kategorite</a>
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href="manage-categories.php" class="dropdown-item">Manage Categories</a></li>
-                            <li><a href="add-category.php" class="dropdown-item">Add Categories</a></li>
+                            <li><a href="manage-categories.php" class="dropdown-item">Menaxhimi i Kategorive</a></li>
+                            <li><a href="add-category.php" class="dropdown-item">Shto Kategori</a></li>
                         </ul>
                     </div>
                 </li>
