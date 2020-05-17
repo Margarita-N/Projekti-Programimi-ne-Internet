@@ -24,7 +24,7 @@
             $stmt->execute();
 
             $result = $stmt->get_result();
-            $resultset=$result->fetch_all(MYSQLI_ASSOC);
+            $resultset=$result->fetch_all();
             if(sizeof($resultset)>0){
                 echo '<span class="red">Email i dhene eshte i regjistruar ne nje account!</span>';
             }
@@ -35,10 +35,10 @@
                 echo '<span class="red">Password dhe confirm password nuk jane te njejta!</span>';
             }
             elseif($passwordLength<8){
-                echo '<span class="red">Password must be at least 8 characters long!<br></span>';
+                echo '<span class="red">Password duhet te jete te pakten 8 karaktere i gjate!<br></span>';
             }
             elseif(!preg_match('@[A-Z]@',$password) || !preg_match('@[a-z]@',$password) || !preg_match('@[0-9]@',$password)){
-                echo '<span class="red">Password should contain a uppercase letter,lowercase letter and a digit!';
+                echo '<span class="red">Password duhet te permbaje te pakten nje shkronje te madhe,te vogel dhe nje numer!';
             }
             else{
                 $driver = new mysqli_driver();
@@ -60,12 +60,12 @@
                         $id=$result['userID'];
                     }
 
-                    $logedInUser=new user($id,$username,$password,$email);
+                    $logedInUser=new user($id,$username,$password,$email,$status);
                     $_SESSION['user']=$logedInUser;
 
-                    echo 'Thank you for signing up.<br>You are now logged in!';
+                    echo 'Faleminderit per regjistrim.<br>Tani jeni i kyqur!<script>window.location.assign("index.php");</script>';
                 }catch(Exception $e){
-                    echo '<span class="red">Registration failed!<br>Refresh and try again</span>';
+                    echo '<span class="red">Regjistrimi deshtoi!<br>Rifresko dhe provo perseri</span>';
                 }
                 
                 
