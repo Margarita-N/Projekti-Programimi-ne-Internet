@@ -5,7 +5,7 @@ define("username","root");
 define("password","");
 
 function getData(){
-        $sql = "SELECT bookID,bookName,price,fotoPath FROM librat where rating =10 limit 3";
+        $sql = "SELECT bookID,bookName,price,fotoPath FROM librat where rating =3 limit 3";
         $conn=new mysqli(serverName,username,password,dbname);
         $result = mysqli_query($conn, $sql);
 
