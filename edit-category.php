@@ -21,7 +21,7 @@ $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':catid',$catid,PDO::PARAM_STR);
 $query->execute();
 $_SESSION['updatemsg']="Brand updated successfully";
-header('location:kategorite.php');
+header('location:manage-categries.php');
 }
 
 ?>
