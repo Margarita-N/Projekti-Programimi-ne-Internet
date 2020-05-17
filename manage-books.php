@@ -120,7 +120,17 @@ header('location:manage-books.php');
                                     </thead>
                                     <tbody>
 									
-<?php $sql = "SELECT librat.bookName,librat.Kategoria,librat.author,librat.price,librat.shtepiaBotuese,librat.numriFaqeve,librat.fotoPath,librat.rating,librat.stock,librat.bookID from librat";
+<?php 
+$page=$_GET["page"];
+if($page==""|| $page=="1")
+{
+	$page1=0; 
+}
+else
+{
+	$page1=($page*5)-5;
+}
+$sql = "SELECT librat.bookName,librat.Kategoria,librat.author,librat.price,librat.shtepiaBotuese,librat.numriFaqeve,librat.fotoPath,librat.rating,librat.stock,librat.bookID from librat limit $page1,5";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
