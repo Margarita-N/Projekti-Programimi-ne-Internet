@@ -13,7 +13,7 @@ session_start();
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>winter</title>
+  <title>Shporta</title>
   <link rel="icon" href="img/favicon.png">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -41,8 +41,21 @@ session_start();
           background-color:#f76969;
           color:white;
           border-radius:5px;
+          transition:0.3s;
       }
-
+      #removeBtn:hover{
+        background-color:#ad565a;
+      }
+      #paguajBtn{
+        background-color:#f76969;
+        color:white;
+        padding:10px;
+        border-radius:5px;
+        transition:0.5s
+      }
+      #paguajBtn:hover{
+        background-color:#ad565a;
+      }
   </style>
 </head>
 
@@ -59,6 +72,7 @@ session_start();
 
                 <?php
                 $total = 0;
+                $bookCount=0;
                     if (isset($_SESSION['cart'])){
                         for($i=0;$i<sizeof($_SESSION['cart']);$i++){
                             $product=$_SESSION['cart'][$i];
@@ -70,7 +84,8 @@ session_start();
                                                     </div>
                                                     <div class=\"col-md-6\">
                                                         <h5 class=\"pt-2\">".$product->getBookName()."</h5>
-                                                        <small class=\"text-secondary\">Shitesi: Bibliotech</small>
+                                                        <small class=\"text-secondary\">Shitesi: Bibliotech</small><br>
+                                                        <small class=\"text-secondary\">Sasia:".$product->getQuantity()."</small>
                                                         <h5 class=\"pt-2\">€".$product->getPrice()."</h5>
                                                         <a href='removeBook.php?id=".$i."' id=\"removeBtn\">Remove</a>
                                                     </div>
@@ -82,7 +97,8 @@ session_start();
                                                 </div>
                                             </div>
                                         </form>";
-                                        $total=$total+$product->getPrice();
+                                        $total=$total+($product->getPrice()*$product->getQuantity());
+                                        $bookCount=$bookCount+$product->getQuantity();
                         }
                     }else{
                         echo "<h5>Shporta eshte e zbrazet. </h5>";
@@ -101,8 +117,7 @@ session_start();
                     <div class="col-md-6">
                         <?php
                             if (isset($_SESSION['cart'])){
-                                $count  = count($_SESSION['cart']);
-                                echo "<h6>Cmimi ($count libra)</h6>";
+                                echo "<h6>Cmimi ($bookCount libra)</h6>";
                             }else{
                                 echo "<h6>Cmimi (0 libra) </h6>";
                             }
@@ -121,7 +136,7 @@ session_start();
                             <hr>
                     </div>
                     <div class="col-md-6">
-                        <a href='checkout.php' style="background-color:#f76969;color:white;padding:10px;border-radius:5px">Paguaj</a>
+                        <a href='checkout.php' id="paguajBtn">Paguaj</a>
                         <hr>
                     </div>
                 </div>
@@ -136,6 +151,7 @@ session_start();
 <!--::footer_part end::-->
 
   <!-- jquery plugins here-->
+  <script src="js/search-books.js"></script>
   <!-- jquery -->
   <script src="js/jquery-1.12.1.min.js"></script>
   <!-- popper js -->
