@@ -8,10 +8,10 @@
             </ul>
             </div>
             <ul class="navbar-nav">
-                <li class="nav-item dropdown"><a href="#">Users</a>
+                <li class="nav-item dropdown"><a href="#">Perdoruesit</a>
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href="users_AdminPage.php" class="dropdown-item">Manage Users</a></li>
+                            <li><a href="users_AdminPage.php" class="dropdown-item">Menaxhimi i perdoruesve</a></li>
                             
                         </ul>
                     </div>
