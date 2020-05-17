@@ -162,6 +162,12 @@ foreach($results as $result)
                             </div>
                     </div>
                     <!--End Advanced Tables -->
+<div style="padding-left:1080px;">
+<?php
+$sql = "SELECT * from  librat";
+$query = $dbh -> prepare($sql);
+$query->execute();
+	?>
     </div>
     </div>
 
