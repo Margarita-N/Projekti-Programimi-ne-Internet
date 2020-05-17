@@ -32,3 +32,18 @@
 <?php
     require("header.php");
     ?>
+</br>
+    </br>
+    </br>
+    <h1 style="text-align:center;color:white;font-size:50px">JU JENI KY PERSONAZH NGA HARRY POTTER</h1>
+    </br>
+    </br> </br> </br> 
+    <div id="name">
+    <h2 style="color:white">Name:Hannah Abbott</h2>
+    </div>
+    </br>
+
+    <div id="role">
+    <h2 style="color:white">Role:Student</h2>
+    </div>
+    </br>
