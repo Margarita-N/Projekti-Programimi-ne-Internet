@@ -57,7 +57,7 @@
                                 ?>
                                 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="kontakt.html">KONTAKT</a>
+                                    <a class="nav-link" href="kontakt.php">KONTAKT</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <?php 
