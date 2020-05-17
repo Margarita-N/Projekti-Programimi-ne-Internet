@@ -167,6 +167,8 @@ foreach($results as $result)
 $sql = "SELECT * from  librat";
 $query = $dbh -> prepare($sql);
 $query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$cou= $query->rowCount();
 	?>
     </div>
     </div>
