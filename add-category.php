@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
+if(!isset($_SESSION['user']))
     {   
 header('location:index.php');
 }
@@ -20,12 +20,12 @@ $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-$_SESSION['msg']="U listua me sukses ! ";
+$_SESSION['msg']="U ruajten te dhenat me sukses.";
 header('location:manage-categories.php');
 }
 else 
 {
-$_SESSION['error']="Ka disa probleme.Ju lutem provoni prap !";
+$_SESSION['error']="Diqka shkoj keq.Provoni prap.";
 header('location:manage-categories.php');
 }
 
@@ -35,7 +35,6 @@ header('location:manage-categories.php');
 <html >
 <head>
     <meta charset="utf-8" />
-	
 	    <title>Shto kategorite</title>
         <link href="css/AdminStyle.css" rel="stylesheet"/>
         <link href="css/style.css" rel="stylesheet"/>
