@@ -57,3 +57,20 @@
     <h2 style="color:white">School:Hogwarts School of Witchcraft and Wizardry</h2>
     </div>
     </br>
+
+    <div id="bloodstatus">
+    <h2 style="color:white">Blood status:Half blood</h2>
+    </div>
+    </br>
+
+    <div id="species">
+    <h2 style="color:white">Species:Human</h2>
+    </div>
+    </br>
+    </div>
+
+<?php
+require("footer.php");
+?>
+</body>
+</html> 
