@@ -14,7 +14,9 @@ $query = $dbh->prepare($sql);
 $query->bindParam(':emaili',$emaili,PDO::PARAM_STR);
 $query->bindParam(':emri',$emri,PDO::PARAM_STR);
 $query->bindParam(':subjekti',$subjekti,PDO::PARAM_STR);
-	
+$query->bindParam(':mesazhi',$mesazhi,PDO::PARAM_STR);
+$query->execute();
+}
 ?>
 
 <?php
