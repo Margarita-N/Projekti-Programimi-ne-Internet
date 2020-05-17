@@ -61,13 +61,11 @@
 
                 var confirmation=null;
                 <?php if(isset($_SESSION['user'])){
-                    echo 'var confirmation=confirm("A user is already logged in!\nDo you want to log out of that account to proceed?");';
+                    echo 'confirmation=confirm("A user is already logged in!\nDo you want to log out of that account to proceed?");';
                 }
                 ?>
-                if(confirmation){ <?php unset($_SESSION['user']); ?> }
+                if(confirmation){ <?php unset($_SESSION['user']); ?> window.location.assign("signup.php"); }
                 else if(confirmation==false){alert("You must log out first to sign up!"); }
-                
-    
                 
                 var username=$("#username").val();
                 var email=$("#email").val();
@@ -99,7 +97,7 @@
 
 <body class="bg-white">
     <!--::header part start::-->
-    <?php require("Reusable/header.php"); ?>
+    <?php require("header.php"); ?>
     <!-- Header part end-->
 
     <!--================login_part Area =================-->
@@ -196,7 +194,7 @@
     <!--::subscribe_area part end::-->
 
     <!--::footer_part start::-->
-    <?php require("Reusable/footer.php"); ?>
+    <?php require("footer.php"); ?>
     <!--::footer_part end::-->
 
     <!-- jquery plugins here-->
