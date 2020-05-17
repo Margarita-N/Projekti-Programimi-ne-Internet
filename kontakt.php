@@ -11,6 +11,7 @@ $mesazhi=$_POST["message"];
 $sql="INSERT INTO newsletter(email,emri,subjekti,mesazhi)
 VALUES(:emaili,:emri,:subjekti,:mesazhi)";
 $query = $dbh->prepare($sql);	
+$query->bindParam(':emaili',$emaili,PDO::PARAM_STR);
 ?>
 
 <?php
