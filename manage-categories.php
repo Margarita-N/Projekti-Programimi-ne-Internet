@@ -2,8 +2,8 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
-    {   
+if(!isset($_SESSION['user']))
+{   
 header('location:index.php');
 }
 else{ 
@@ -14,7 +14,7 @@ $sql = "delete from kategorite  WHERE kategoriID=:id";
 $query = $dbh->prepare($sql);
 $query -> bindParam(':id',$id, PDO::PARAM_STR);
 $query -> execute();
-$_SESSION['delmsg']="Category deleted scuccessfully ";
+$_SESSION['delmsg']="Kategoria u fshi me sukses .";
 header('location:manage-categories.php');
 
 }
