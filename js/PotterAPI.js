@@ -2,12 +2,17 @@
 const key = '$2a$10$OPN2odqvrzej8248sp0Gz.ybGddlJesY5FF3HGKoNGeX86fQ7QbCS';
 
 // create the list where we will place our characters in
-const ul = document.getElementById('house');
+const div1 = document.getElementById('name');
+const div2 = document.getElementById('role');
+const div3 = document.getElementById('house');
+const div4 = document.getElementById('school');
+const div5 = document.getElementById('bloodstatus');
+const div6 = document.getElementById('species');
 
 var houses=['Gryffindor','Ravenclaw','Slytherin','Hufflepuff'];
 
 // create URL to get all Harry Potter characters
-const url = new URL('https://www.potterapi.com/v1/characters/'), params = {key: key, house: houses[Math.floor((Math.random() * 4) + 1)]}
+const url = new URL('https://www.potterapi.com/v1/characters/'), params = {key: key, house: houses[Math.floor(Math.random()*4)]}
 console.log(url);
 
 
@@ -30,7 +35,7 @@ fetch(url, {key: key})
   var characters = data;
   console.log(characters);
   var random=Math.floor((Math.random() * 10) + 1);
-    
+  
   var p1 = createNode('h2');
   p1.innerHTML = characters[random].name;
   append(div1, p1);
@@ -58,3 +63,4 @@ fetch(url, {key: key})
   p.innerHTML="There's an error with the API.";
   append(div1, p);
 });
+
