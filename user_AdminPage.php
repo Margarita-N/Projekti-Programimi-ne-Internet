@@ -25,9 +25,7 @@
                 <th>Data e antaresimit</th>
                 <th>Email</th>
                 <th>Gjinia</th>
-                <th>Qyteti</th>
                 <th>Shteti</th>
-                <th>Ditelindja</th>
                 <th>Edit User</th>
                 <th>Delete User</th>
             </tr>
@@ -57,11 +55,9 @@
                     .'<td>'.$result['antaresimi'].'</td>'
                     .'<td>'.$result['email'].'</td>'
                     .'<td>'.define_gender($result['gjinia']).'</td>'
-                    .'<td>'.$result['qyteti'].'</td>'
                     .'<td>'.$result['shteti'].'</td>'
-                    .'<td>'.$result['ditelindja'].'</td>'
                     .'<td><a href="edit-user.php?id='.$result['userID'].'">Edit</a></td>'
-                    .'<td><a href="edit-user.php?id='.$result['userID'].'">Delete</a></td>';
+                    .'<td><a href="delete-user.php?id='.$result['userID'].'">Delete</a></td>';
             }
             ?>
         </table>
