@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
+if(!isset($_SESSION['user']))
     {   
 header('location:index.php');
 }
@@ -56,9 +56,11 @@ header('location:manage-books.php');
     <link href="css/style.css" rel="stylesheet"/>
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
+    <link href="css/all.min.css" rel="stylesheet"/>
+    <script src="css/all.min.js"></script>
 </head>
 <body>
+<div class="center-body">
       <!------MENU SECTION START-->
 <?php include('AdminHeader.php');?>
 <style><?php readfile("css/AdminStyle.css");?></style>
@@ -180,5 +182,6 @@ else
 
         </div>
 </body>
+</div>
 </html>
 <?php } ?>
