@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
+if(!isset($_SESSION['user']))
     {   
 header('location:index.php');
 }
@@ -20,8 +20,8 @@ $query->bindParam(':category',$category,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':catid',$catid,PDO::PARAM_STR);
 $query->execute();
-$_SESSION['updatemsg']="Brand updated successfully";
-header('location:manage-categries.php');
+$_SESSION['updatemsg']="Me sukses u ruajten ndryshimet";
+header('location:manage-categories.php');
 }
 
 ?>
@@ -35,6 +35,7 @@ header('location:manage-categries.php');
         <script src="css/all.min.js"></script>
     </head>
 <body>
+<div class="center-body">
  <?php include('AdminHeader.php');?>
 
 </br>
@@ -90,6 +91,7 @@ foreach($results as $result)
                  </form>
              </div>
         </div>
+</div>
 </body>
 </html>
 <?php } ?>
