@@ -7,6 +7,10 @@ $emaili=$_POST["emaili"];
 $emri=$_POST["name"];
 $subjekti=$_POST["subject"];
 $mesazhi=$_POST["message"];
+
+$sql="INSERT INTO newsletter(email,emri,subjekti,mesazhi)
+VALUES(:emaili,:emri,:subjekti,:mesazhi)";
+$query = $dbh->prepare($sql);	
 ?>
 
 <?php
