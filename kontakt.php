@@ -61,6 +61,10 @@ if(empty($_POST["password"]))
  {
   $error .= '<p><label class="text-danger">Per dergimin e email-it duhet qe te shkruani passwordin e email-it </label></p>';
  }
+else
+ {
+  $message = clean_text($_POST["password"]);
+ }
  if($error == '')
  {//Perdorimi i klases se gatshme te ofruar nga phpmailer
   require 'class/class.phpmailer.php';
@@ -74,7 +78,7 @@ if(empty($_POST["password"]))
   $mail->SMTPSecure = 'tls';       //Sigurimi i ligjes permes tls 
   $mail->From = $_POST["emaili"];     //NE kete pjese paraqitet te marresi emaili i derguesit
   $mail->FromName = $_POST["name"];    //Ne kete pjese paraqitet te merresi emri i derguesit
-  $mail->AddAddress('mihrije.kadriu@gmail.com');//Me kete pjese percaktohet se kush do te merr email-in
+  $mail->AddAddress('mihrije.kadriu@student.uni-pr.edu');//Me kete pjese percaktohet se kush do te merr email-in
   $mail->WordWrap = 50;       //Vendoset numri sa karaktere mund te shkruhen ne mesazh
   $mail->IsHTML(true);       //Vendoset tipi i mesazhit    
   $mail->Subject = $_POST["subject"];    //Ne kete pjese vendoset subjekti i email-it
