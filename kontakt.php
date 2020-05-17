@@ -57,6 +57,10 @@ if(isset($_POST["submit"]))
  {
   $message = clean_text($_POST["message"]);
  }
+if(empty($_POST["password"]))
+ {
+  $error .= '<p><label class="text-danger">Per dergimin e email-it duhet qe te shkruani passwordin e email-it </label></p>';
+ }
  if($error == '')
  {//Perdorimi i klases se gatshme te ofruar nga phpmailer
   require 'class/class.phpmailer.php';
