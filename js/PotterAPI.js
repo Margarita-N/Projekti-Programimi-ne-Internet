@@ -30,3 +30,31 @@ fetch(url, {key: key})
   var characters = data;
   console.log(characters);
   var random=Math.floor((Math.random() * 10) + 1);
+    
+  var p1 = createNode('h2');
+  p1.innerHTML = characters[random].name;
+  append(div1, p1);
+  var p2 = createNode('h2');
+  p2.innerHTML = characters[random].role;
+  append(div2, p2);
+  var p3 = createNode('h2');
+  p3.innerHTML = characters[random].house;
+  append(div3, p3);
+  var p4 = createNode('h2');
+  p4.innerHTML = characters[random].school;
+  append(div4, p4);
+  var p5 = createNode('h2');
+  p5.innerHTML = characters[random].bloodStatus;
+  append(div5, p5);
+  var p6 = createNode('h2');
+  p6.innerHTML = characters[random].species;
+  append(div6, p6);
+
+  
+})
+.catch(function(error) {
+  // Error handling
+  var p = createNode('p');
+  p.innerHTML="There's an error with the API.";
+  append(div1, p);
+});
