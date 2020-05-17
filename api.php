@@ -23,17 +23,22 @@
     <link rel="stylesheet" href="css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        h2{
+            color:white;
+        }
 
+    </style>
 
 <title>HarryPotterAPI</title>
 </head>
 <body>
-<script src='PotterAPI.js'></script>
+
 <?php
     require("header.php");
-    ?>
+?>
     
-     <div id="main_div"style="background-color:lightgray;text-align:center;background-image:url(img/harry6.png);background-size:contain,cover; background-repear:no-repeat">
+<div id="main_div"style="background-color:lightgray;text-align:center;background-image:url(img/harry6.png);background-size:contain,cover; background-repear:no-repeat">
 
 </br>
     </br>
@@ -42,38 +47,65 @@
     </br>
     </br> </br> </br> 
     <div id="name">
-    <h2 style="color:white">Name:Hannah Abbott</h2>
+    <p>Name:</p>
     </div>
     </br>
 
     <div id="role">
-    <h2 style="color:white">Role:Student</h2>
+    <p>Role:</p>
     </div>
     </br>
 
-     <div id="house">
-    <h2 style="color:white">House:Hufflepuff</h2>
+    <div id="house">
+    <p>House:</p>
     </div>
     </br>
 
     <div id="school">
-    <h2 style="color:white">School:Hogwarts School of Witchcraft and Wizardry</h2>
+    <p>School:</p>
     </div>
     </br>
 
     <div id="bloodstatus">
-    <h2 style="color:white">Blood status:Half blood</h2>
+    <p>Blood Status:</p>
     </div>
     </br>
 
     <div id="species">
-    <h2 style="color:white">Species:Human</h2>
+    <p>Species:</p>
     </div>
     </br>
     </div>
-
+    <script src='js/PotterAPI.js'></script>
 <?php
 require("footer.php");
 ?>
+
+<!-- jquery plugins here-->
+<script src="js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <!-- swiper js -->
+    <script src="js/swiper.min.js"></script>
+    <!-- swiper js -->
+    <script src="js/mixitup.min.js"></script>
+    <!-- particles js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <!-- slick js -->
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
 </body>
 </html> 
