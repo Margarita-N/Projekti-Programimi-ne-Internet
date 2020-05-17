@@ -32,6 +32,9 @@
 <?php
     require("header.php");
     ?>
+    
+     <div id="main_div"style="background-color:lightgray;text-align:center;background-image:url(img/harry6.png);background-size:contain,cover; background-repear:no-repeat">
+
 </br>
     </br>
     </br>
