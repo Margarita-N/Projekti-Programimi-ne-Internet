@@ -1,7 +1,14 @@
 <?php
 
 include('includes/config.php');
+if(isset($_POST['newsletter']))
+{
+$emaili=$_POST["emaili"];
+$emri=$_POST["name"];
+$subjekti=$_POST["subject"];
+$mesazhi=$_POST["message"];
 ?>
+
 <?php
 session_start();
 $error = '';
