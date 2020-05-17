@@ -37,6 +37,19 @@
       border:none;
       background-color:transparent;
     }
+    #bejPorosi{
+      margin:15px;
+      border:none;
+      border-radius:20px;
+      padding:15px;
+      background-color:#f76969;
+      color:white;
+      width:200px;
+      transition:0.5s;
+    }
+    #bejPorosi:hover{
+      background-color:#ad565a;
+    }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/search-books.js"></script>
@@ -130,10 +143,11 @@
                         for($i=0;$i<sizeof($_SESSION['cart']);$i++){
                             echo '<li>
                                  <a href="#">'.$_SESSION['cart'][$i]->getBookName().'
+                                  <span class="middle">x '.$_SESSION['cart'][$i]->getQuantity().'</span>
                                   <span class="last">'.$_SESSION['cart'][$i]->getPrice().'</span>
                                  </a>
                                </li>';
-                               $total=$total+$_SESSION['cart'][$i]->getPrice();
+                               $total=$total+($_SESSION['cart'][$i]->getPrice()*$_SESSION['cart'][$i]->getQuantity());
                         }
                         
                     }
