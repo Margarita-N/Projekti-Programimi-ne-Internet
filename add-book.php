@@ -38,12 +38,12 @@ $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
 {
-$_SESSION['msg']="Book Listed successfully";
+$_SESSION['msg']="Librat u shtuan me sukses";
 header('location:manage-books.php');
 }
 else 
 {
-$_SESSION['error']="Something went wrong. Please try again";
+$_SESSION['error']="Ka gabime. Provo perseri";
 header('location:manage-books.php');
 }
 
@@ -157,7 +157,7 @@ foreach($results as $result)
  <label>Price<span style="color:red;">*</span></label>
  <input class="form-control" type="text" name="price" autocomplete="off"   required="required" />
  </div>
-<button type="submit" name="add" class="btn btn-info">Add </button>
+<button type="submit" name="add" class="btn btn-info">Shto librin </button>
 
                                    </form>
                           </div>
