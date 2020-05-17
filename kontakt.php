@@ -78,7 +78,7 @@ else
   $mail->SMTPSecure = 'tls';       //Sigurimi i ligjes permes tls 
   $mail->From = $_POST["emaili"];     //NE kete pjese paraqitet te marresi emaili i derguesit
   $mail->FromName = $_POST["name"];    //Ne kete pjese paraqitet te merresi emri i derguesit
-  $mail->AddAddress('mihrije.kadriu@student.uni-pr.edu','Lyre.Pireva@student.uni-pr.edu');//Me kete pjese percaktohet se kush do te merr email-in
+  $mail->AddAddress('mihrije.kadriu@student.uni-pr.edu','Lyre.Pireva@student.uni-pr.edu','Margarita.Nasufi@student.uni-pr.edu');//Me kete pjese percaktohet se kush do te merr email-in
   $mail->WordWrap = 50;       //Vendoset numri sa karaktere mund te shkruhen ne mesazh
   $mail->IsHTML(true);       //Vendoset tipi i mesazhit    
   $mail->Subject = $_POST["subject"];    //Ne kete pjese vendoset subjekti i email-it
