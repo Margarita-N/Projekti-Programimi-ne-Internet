@@ -42,7 +42,9 @@ $resultArray=mysqli_query($conn,$query);
 
 <body class="bg-white">
     <!--::header part start::-->
-    <?php require("header.php"); ?>
+    <?php 
+    require("header.php");
+    ?>
     <!-- Header part end-->
 
     <!--================Category Product Area =================-->
@@ -53,7 +55,7 @@ $resultArray=mysqli_query($conn,$query);
                     <div class="left_sidebar_area">
                         <aside class="left_widgets p_filter_widgets sidebar_box_shadow">
                             <div class="l_w_title">
-                                <h3>Browse Categories</h3>
+                                <h3>Shfletoni Kategoritë</h3>
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
@@ -110,7 +112,7 @@ $resultArray=mysqli_query($conn,$query);
                             echo '<div class="col-lg-4 col-sm-6">
                                     <div class="single_category_product">
                                         <div class="single_category_img">
-                                            <a href="libri.php?bookId='.$result['bookID'].'"><img src="'.$result['fotoPath'].'" alt=""></a>
+                                            <a href="libri.php?bookId='.$result['bookID'].'"><img src="'.$result['fotoPath'].'" alt="Fotot e Kategorive"></a>
                                             <div class="category_product_text">
                                                 <a href="single-product.html"><h5>'.$result['bookName'].'</h5></a>
                                                 <p>'.$result['price'].'€</p>
@@ -222,6 +224,7 @@ $resultArray=mysqli_query($conn,$query);
     <script src="js/jquery.counterup.min.js"></script>
     <script src="js/waypoints.min.js"></script>
     <script src="js/contact.js"></script>
+     <!-- slick js -->
     <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
