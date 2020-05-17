@@ -35,6 +35,8 @@ session_start();
   <link rel="stylesheet" href="css/price_rangs.css">
   <!-- style CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/search-books.js"></script>
   <style>
       #removeBtn{
           padding:10px;
@@ -76,7 +78,7 @@ session_start();
                     if (isset($_SESSION['cart'])){
                         for($i=0;$i<sizeof($_SESSION['cart']);$i++){
                             $product=$_SESSION['cart'][$i];
-                            echo "<form action=\"cartii.php?action=remove&id=".$product->getID()."\" method=\"post\" class=\"cart-items\">
+                            echo "<form action=\"carti.php?action=remove&id=".$product->getID()."\" method=\"post\" class=\"cart-items\">
                                             <div class=\"border rounded\">
                                                 <div class=\"row bg-white\">
                                                     <div class=\"col-md-3 pl-0\">
@@ -151,7 +153,6 @@ session_start();
 <!--::footer_part end::-->
 
   <!-- jquery plugins here-->
-  <script src="js/search-books.js"></script>
   <!-- jquery -->
   <script src="js/jquery-1.12.1.min.js"></script>
   <!-- popper js -->
