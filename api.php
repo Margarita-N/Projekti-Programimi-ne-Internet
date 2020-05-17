@@ -47,3 +47,13 @@
     <h2 style="color:white">Role:Student</h2>
     </div>
     </br>
+
+     <div id="house">
+    <h2 style="color:white">House:Hufflepuff</h2>
+    </div>
+    </br>
+
+    <div id="school">
+    <h2 style="color:white">School:Hogwarts School of Witchcraft and Wizardry</h2>
+    </div>
+    </br>
