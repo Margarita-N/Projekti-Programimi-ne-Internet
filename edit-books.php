@@ -36,7 +36,7 @@ $query->bindParam(':stock',$stock,PDO::PARAM_STR);
 $query->bindParam(':Kategoria',$Kategoria,PDO::PARAM_STR);
 $query->bindParam(':bookID',$bookID,PDO::PARAM_STR);
 $query->execute();
-$_SESSION['msg']="Book info updated successfully";
+$_SESSION['msg']="Librat u edituan me sukses .";
 header('location:manage-books.php');
 }
 ?>
