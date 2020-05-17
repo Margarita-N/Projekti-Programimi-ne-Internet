@@ -149,6 +149,8 @@ insert into kategorite(kategoriName,Statusi) values('EkonomiBiznes',1);
 insert into kategorite(kategoriName,Statusi) values('FilozofiSociologji',1);
 insert into kategorite(kategoriName,Statusi) values('Libra per femije',1);
 insert into kategorite(kategoriName,Statusi) values('Religjioz',1);
+insert into kategorite(kategoriName,Statusi) values('Shkenca socialePsikologji',1);
+insert into kategorite(kategoriName,Statusi) values('Letersi Shqiptare',1);
 
 alter table newsletter  add emri varchar(50) ;
 alter table newsletter add subjekti varchar(50);
