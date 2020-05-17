@@ -7,36 +7,6 @@ session_start();
 
 
 
-// if (isset($_POST['add'])){
-//     if(isset($_SESSION['cart'])){
-
-//         $item_array_id = array_column($_SESSION['cart'], "product_id");
-
-//         if(in_array($_POST['product_id'], $item_array_id)){
-//             echo "<script>alert('Produkti tani me eshte ne shporte..!')</script>";
-//             echo "<script>window.location = 'index.php'</script>";
-//         }else{
-
-//             $count = count($_SESSION['cart']);
-//             $item_array = array(
-//                 'product_id' => $_POST['product_id']
-//             );
-
-//             $_SESSION['cart'][$count] = $item_array;
-//         }
-//     }else{
-
-//         $item_array = array(
-//                 'product_id' => $_POST['product_id']
-//         );
-
-//         // Create new session variable
-//         $_SESSION['cart'][0] = $item_array;
-//         print_r($_SESSION['cart']);
-//     }
-// }
-
-
 ?>
 <!doctype html>
 <html lang="zxx">
@@ -66,6 +36,11 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/search-books.js"></script>
+    <style>
+        body{
+            overflow-x:hidden;
+        }
+    </style>
     <script>
         $(document).ready(function(){
             $(".cart-items").submit(function(event){
@@ -164,12 +139,14 @@ session_start();
             <div class="row">
                 <div class="col-lg-12">
                     <div class="new_arrival_iner filter-container">
-                    <?php
-                        $result = getData();
-                        while ($row = mysqli_fetch_assoc($result)){
-                            component( $row['bookName'],$row['price'],$row['fotoPath'],$row['bookID']);
-                        }
-                    ?>
+                        <div class="row align-items-center justify-content-between" style="margin-left:auto;margin-right:auto">
+                            <?php
+                                $result = getData();
+                                while ($row = mysqli_fetch_assoc($result)){
+                                    component( $row['bookName'],$row['price'],$row['fotoPath'],$row['bookID']);
+                                }
+                            ?>
+                        </div>
                     </div>
                 </div> 
             </div>
