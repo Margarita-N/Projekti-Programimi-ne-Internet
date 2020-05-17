@@ -172,7 +172,7 @@ $cou= $query->rowCount();
 $a=$cou/5;
 for($b=1;$b<$a;$b++)
 {
-	?><a href="manage-bookss.php?page=<?php echo $b ?>" style="text-decoration:none; margin-left:20px;"><?php echo $b." "?></a><?php</a> <?php
+	?><a href="manage-books.php?page=<?php echo $b ?>" style="text-decoration:none; margin-left:20px;"><?php echo $b." "?></a><?php</a> <?php
 }	
 ?>
     </div>
