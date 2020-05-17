@@ -143,3 +143,5 @@ create table kategorite(
 
 insert into kategorite(kategoriName,Statusi) values('Fantazi',1);
 insert into kategorite(kategoriName,Statusi) values('Biografi',1);
+
+alter table newsletter  add emri varchar(50) ;
