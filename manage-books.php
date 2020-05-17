@@ -2,8 +2,8 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['alogin'])==0)
-    {   
+if(!isset($_SESSION['user']))
+{   
 header('location:index.php');
 }
 else{ 
@@ -34,10 +34,12 @@ header('location:manage-books.php');
 	<link href="css/style.css" rel="stylesheet"/>
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
+    <link href="css/all.min.css" rel="stylesheet"/>
+    <script src="css/all.min.js"></script>
 </head>
 <body>
       <!------MENU SECTION START-->
+<div class="center-body">
 <?php include('AdminHeader.php');?>
 <style><?php readfile("css/AdminStyle.css");?></style>
 <!-- MENU SECTION END-->
@@ -102,6 +104,7 @@ header('location:manage-books.php');
                     <div class="panel panel-default">
                 
                         </div>
+                        
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
@@ -159,10 +162,12 @@ foreach($results as $result)
        <?php $cnt=$cnt+1;}} ?>                                      
                                     </tbody>
                                 </table>
+                                
                             </div>
                     </div>
                     <!--End Advanced Tables -->
-<div style="padding-left:1080px;">
+</div>
+<div class='row' style="display:inline;position:absolute;">
 <?php
 $sql = "SELECT * from  librat";
 $query = $dbh -> prepare($sql);
@@ -172,7 +177,7 @@ $cou= $query->rowCount();
 $a=$cou/5;
 for($b=1;$b<$a;$b++)
 {
-	?><a href="manage-books.php?page=<?php echo $b ?>" style="text-decoration:none; margin-left:20px;"><?php echo $b." "?></a><?php</a> <?php
+	?><a href="manage-books.php?page=<?php echo $b ?>" style="text-decoration:none; margin-left:20px;"><?php echo $b." "?></a><?php
 }	
 ?>
     </div>
